@@ -1,43 +1,41 @@
-#logo-image{
-    object-fit: cover;
-    height: 90px;
-}
-
-#searching{
-    display: flex;
-    height: 35px;
-    padding-left: 50px;
-}
-
-#button-search{
-    border-color: rgb(63, 2, 63);
-}
-
-#button-search:hover{
-    background-color: rgba(150, 125, 172, 0.295);
-}
-
-#pesquisa{
-    width: 450px;
-    font-size: 14.7px;
-}
-
-.navbar{
-    height: 100px;
-}
-
-#button-endereco{
-    background-color: transparent;
-    border: none;
-    color: black;
-}
-
-.options-nav{
-    object-fit: cover;
-    height: 25px;
-}
 
 #carouselExample{
-    padding-top: 100px;
+    padding-top: 40px;
+}
+.title{
+    padding-left: 50px;
+    padding-top: 45px;
 }
 
+.circulo {
+    background: lightblue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+#categorias{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 500px;
+    padding-right: 500px;
+    padding-top: 50px;
+}
+#title-categorias{
+    padding-top: 50px;
+}
+
+#title-restaurantes{
+    padding-top: 50px;
+}
+
+#restaurantes-deck{
+    padding-top: 40px;
+}
+
+#restaurante-img-cards{
+    height: 240px;
+}
+
+#carousel-promocoes{
+    padding-top: 40px;
+}

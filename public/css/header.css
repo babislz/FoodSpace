@@ -1,0 +1,38 @@
+#logo-image{
+    object-fit: cover;
+    height: 90px;
+}
+
+#searching{
+    display: flex;
+    height: 35px;
+    padding-left: 50px;
+}
+
+#button-search{
+    border-color: rgb(63, 2, 63);
+}
+
+#button-search:hover{
+    background-color: rgba(150, 125, 172, 0.295);
+}
+
+#pesquisa{
+    width: 450px;
+    font-size: 14.7px;
+}
+
+.navbar{
+    height: 100px;
+}
+
+#button-endereco{
+    background-color: transparent;
+    border: none;
+    color: black;
+}
+
+.options-nav{
+    object-fit: cover;
+    height: 25px;
+}
