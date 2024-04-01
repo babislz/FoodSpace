@@ -27,6 +27,8 @@ body {
     width: 35vw;
     height: 50vh;
 
+    z-index: 10;
+
     box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.308);
     border-radius: 37px;
 
@@ -83,4 +85,16 @@ body {
     border-style: none;
     width: 40%;
     height: 45px;
+}
+
+.bloons {
+    width: 28vw;
+    position: absolute;
+    left: 5%;
+    top: 30%;
+}
+
+.bloons img {
+    object-fit: cover;
+    width: 280px;
 }

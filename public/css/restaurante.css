@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #F4F3F3;
+}
+
+#profileImg {
+    width: 110px;
+}
+
+#buscaCardapio {
+    width: 550px;
+    height: 45px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.4);
+
+    padding: 20px;
+}
+
+
+.input-icon {
+    object-fit: cover;
+    width: 20px;
+    position: absolute;
+    right: 20px;
+}
+
+.cardapio-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: calc(50% - 50px*2);
+
+    height: 150px;
+    width: 30vw;
+    min-width: 360px;
+
+    margin: 50px;
+    padding: 20px;
+
+    box-shadow: 3px 3px 6.2px 0px rgba(0, 0, 0, 0.25);
+    background-color: white;
+
+    transition: 300ms;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    object-fit: contain;
+    width: 100px;
+}
+
+@media  only screen and (max-width: 1100px) {
+    #buscaCardapio {
+        width: 40vw;
+    }
+}
+
+@media  only screen and (max-width: 970px) {
+    .cardapio-items {
+        flex-direction: column;
+    }
+    .item {
+        flex-basis: 100%;
+        width: 80vw;
+    }
+}
+
+@media  only screen and (max-width: 700px) {
+    #buscaCardapio {
+        display: none;
+    }
+}
