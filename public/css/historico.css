@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.title{
+    padding-left: 50px;
+    padding-top: 45px;
+}
+.linha2{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    border-radius: 15px;
+}
+#subtitle{
+    padding-top: 20px;
+    color: rgb(121, 121, 121);
+}
+.cardapio-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    /* height: 150px; */
+    width: 450px;
+    min-width: 400px;
+
+    margin: 50px;
+    padding: 20px;
+
+    box-shadow: 3px 3px 6.2px 0px rgba(0, 0, 0, 0.25);
+    background-color: white;
+
+    transition: 300ms;
+}
+.dados-rest{
+    padding-left: 30px;
+    padding-top: 12px;
+}
+.item:hover {
+    transform: scale(1.05);
+}
+.item img {
+    object-fit: contain;
+    width: 100px;
+}
+
+@media  only screen and (max-width: 1100px) {
+    #buscaCardapio {
+        width: 40vw;
+    }
+}
+
+@media  only screen and (max-width: 970px) {
+    .cardapio-items {
+        flex-direction: column;
+    }
+    .item {
+        flex-basis: 100%;
+        width: 80vw;
+    }
+}
+
+@media  only screen and (max-width: 700px) {
+    #buscaCardapio {
+        display: none;
+    }
+}
+.historico-restaurante img{
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+}
+.infos-pedido{
+    display: flex;
+    padding-left: 20px;
+    gap: 20px;
+}
+.num-pedidos{
+    display: flex;
+    width: 24px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(190, 190, 190);
+}
+.all-infos-pedido{
+    padding-top: 15px;
+}
+.options-pedidos{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
