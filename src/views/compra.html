@@ -16,30 +16,32 @@
     <img src="/public/img/FoodSpace__1_-removebg-preview 1.png" alt="">
   </header>
   <main>
-    <div class="d-flex justify-content-around">
+    <div id="main-content" class="d-flex justify-content-center">
         <div id="info" class="d-flex flex-column">
-            <div class="address d-flex align-items-center p-5">
+            <div class="address d-flex align-items-center p-5 gap-3">
                 <img src="/public/img/compra/location.svg" alt="">
                 <div>
                     <h5>Av. Juscelino Kubitschek De Oliveira - Ld, 11800</h5>
                     <p>Empresa - Curitiba/PR</p>
                 </div>
             </div>
+            <div class="line-purple"></div>
             <div class="type d-flex flex-column p-5">
                 <h4>Tipo de Entrega</h4>
-                <div class="container-fluid type-cards d-flex justify-content-between align-self-center">
+                <div class="container-fluid pt-5 type-cards d-flex justify-content-between align-self-center">
                     <div class="delivery-card">
-                        <p>Padrão</p>
+                        <p class="purple">Padrão</p>
                         <p>30 - 50 min</p>
-                        <p>Gratis</p>
+                        <p class="green">Gratis</p>
                     </div>
                     <div class="delivery-card">
-                        <p>Padrão</p>
+                        <p class="purple">Padrão</p>
                         <p>30 - 50 min</p>
-                        <p>Gratis</p>
+                        <p class="green">Gratis</p>
                     </div>
                 </div>
             </div>
+            <div class="line-purple"></div>
             <div class="payment p-5">
                 <h4>Pagamento</h4>
                 <div id="payment-methods" class="d-flex flex-column">
@@ -53,14 +55,18 @@
                     </div>
                 </div>
             </div>
+            <div class="line-purple"></div>
             <div class="user-cpf p-5">
-                <h4>Cpf na nota?</h4>
+                <h4 class="mb-4">Cpf na nota?</h4>
                 <input type="text" name="Cpf" id="cpf_input" placeholder="000.000.000-00">
             </div>
         </div>
-        <div id="nota">
-            <div><h2>Seu pedido em Sushi da Babi</h2></div>
-            <div class="order-section">
+
+        <!-- Recibo usuario -->
+        <div id="nota" class="mt-5">
+            <div class="d-flex justify-content-center"><h4>Seu pedido em Sushi da Babi</h4></div>
+            <div class="line-black"></div>
+            <div class="nota-section py-4">
                 <div class="order-item">
                     <p>1  x Hot roll Tradicional 12 un</p>
                     <p>R$ 34,00</p>
@@ -70,7 +76,8 @@
                     <p>R$ 34,00</p>
                 </div>
             </div>
-            <div class="price-section">
+            <div class="line-black"></div>
+            <div class="nota-section py-4">
                 <div class="price-item">
                     <p>Subtotal</p>
                     <p>R$ 34,00</p>
@@ -84,17 +91,21 @@
                     <p>R$ 34,00</p>
                 </div>
             </div>
-            <div class="coupouns">
-                <img src="/public/img/compra/coupom.svg" alt="">
-                <div>
-                    <h4>Cupom</h4>
-                    <p>Código de cupom</p>
+            <div class="line-black"></div>
+            <div class="nota-section d-flex py-3">
+                <img src="/public/img/compra/coupom.svg" id="img_coupom" alt="">
+                <div class="d-flex justify-content-between ms-3 container-fluid">
+                    <div>
+                        <h5>Cupom</h5>
+                        <p>Código de cupom</p>
+                    </div>
+                    <img id="coupom_arrow" src="/public/img/compra/arrow.svg" alt="">
                 </div>
-                <img src="/public/img/compra/arrow.svg" alt="">
             </div>
-            <div class="total">
-                <div>
-                    <h1>TOTAL</h1>
+            <div class="line-black"></div>
+            <div class="total py-3">
+                <div class="d-flex container-fluid justify-content-between align-items-center">
+                    <h1 class="purple">TOTAL</h1>
                     <h4>R$ 34,00</h4>
                 </div>
                 <button id="order_button">Finalizar Compra</button>
@@ -127,7 +138,7 @@
             <p>Twitter</p>
           </div>
         </div>
-        <div id="linha" class="my-3"></div>
+        <div id="line-purple" class="my-3"></div>
         <div class="container-fluid d-flex justify-content-around">
           <p>Termos de contrato</p>
           <p>Sobre</p>
