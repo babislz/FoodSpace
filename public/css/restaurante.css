@@ -6,11 +6,9 @@
 body {
     background-color: #F4F3F3;
 }
-
 #profileImg {
     width: 110px;
 }
-
 #buscaCardapio {
     width: 550px;
     height: 45px;
@@ -21,7 +19,10 @@ body {
     padding: 20px;
 }
 
-
+.restaurant-header img{
+    width: 100%;
+    object-fit: cover;
+}
 .input-icon {
     object-fit: cover;
     width: 20px;
@@ -83,4 +84,11 @@ body {
     #buscaCardapio {
         display: none;
     }
+}
+
+#carouselExample{
+    padding-top: 40px;
+}
+.cardapio{
+    padding-top: 40px;
 }
