@@ -3,6 +3,9 @@
     padding: 0;
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 .title{
     padding-left: 50px;
     padding-top: 45px;
@@ -21,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 .item {
     display: flex;
@@ -88,10 +92,13 @@
     width: 24px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(218, 218, 218);
 }
 .all-infos-pedido{
     padding-top: 15px;
+}
+.options-pedidos a{
+    color: blueviolet;
 }
 .options-pedidos{
     display: flex;
