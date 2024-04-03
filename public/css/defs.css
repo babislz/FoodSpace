@@ -1,0 +1,11 @@
+:root{
+    --dark-purple: #3c096c;
+    --background-light: #f8f9fa;
+    --circle-blue: lightblue;
+}
+
+.dark-mode {
+    --dark-purple: #3c096c;
+    --background-light: rgb(11, 16, 20);
+    --circle-blue: rgb(30, 195, 250);
+}

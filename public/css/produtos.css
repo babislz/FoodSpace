@@ -1,3 +1,5 @@
+@import url(defs.css);
+
 
 #carouselExample{
     padding-top: 40px;
@@ -7,7 +9,7 @@
     padding-top: 45px;
 }
 .circulo {
-    background: lightblue;
+    background: var(--circle-blue);
     border-radius: 50%;
     width: 100px;
     height: 100px;

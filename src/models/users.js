@@ -8,16 +8,24 @@ const user = database.define("Users", {
         allowNull: false,
         primaryKey: true
     },
-    full_name
-    user_name: {
+    full_name: {
         type: sql.STRING(255),
         allowNull: false
+    },
+    user_name: {
+        type: sql.STRING(255),
+        allowNull: false,
+        unique: true
     },
     user_pw: {
         type: sql.STRING(255),
         allowNull: false
     },
-    age: {
+    user_email: {
+        type: sql.STRING(255),
+        allowNull: false
+    },
+    user_phone: {
         type: sql.INTEGER,
         allowNull: false
     }
