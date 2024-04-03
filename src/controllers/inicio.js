@@ -5,7 +5,11 @@ module.exports = {
         res.render('../views/login.ejs')
     },
     async postLogin(req, res) {
+        const parameters = req.body;
         
+        const user = users.findOne({
+            where
+        });
     },
     async getCadastro(req, res) {
         res.render('../views/cadastro.ejs')
