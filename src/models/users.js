@@ -8,6 +8,7 @@ const user = database.define("Users", {
         allowNull: false,
         primaryKey: true
     },
+    full_name
     user_name: {
         type: sql.STRING(255),
         allowNull: false
@@ -22,4 +23,4 @@ const user = database.define("Users", {
     }
 })
 
-module.exports = user
+module.exports = user;

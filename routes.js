@@ -8,7 +8,11 @@ const restaurantes = require('./src/controllers/produtos');
 const historico = require('./src/controllers/historico');
 
 route.get('/', inicio.getInicio);
+route.post('/', inicio.postLogin);
+
 route.get('/cadastro', inicio.getCadastro)
+route.post('/cadastro', inicio.postCadastro)
+
 route.get('/restaurantes', restaurantes.getProdutos);
 route.get('/compra', compra.getCompra);
 route.get('/historico', historico.getHistorico);

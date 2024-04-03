@@ -11,14 +11,14 @@
 <body>
     <main>
         <div class="cadastro-holder">
-            <form id="cadastroForm" class="d-flex flex-column justify-content-between p-5" action="">
+            <form id="cadastroForm" class="d-flex flex-column justify-content-between p-5" action="/cadastro" method="post">
                 <h3>Registre-se para nunca mais passar fome!</h2>
 
                 <div class="form-inputs d-flex flex-column mt-4">
-                    <input  type="text" placeholder="Nome Completo">
-                    <input class="mt-4" type="text" placeholder="Celular">
-                    <input class="mt-4" type="text" placeholder="Senha">
-                    <input class="mt-4" type="text" placeholder="Email">
+                    <input  type="text" placeholder="Nome Completo" name="user_name" id="user_name">
+                    <input class="mt-4" type="text" placeholder="Celular" name="user_phone" id="user_phone">
+                    <input class="mt-4" type="password" placeholder="Senha" name="user_pw" id="user_pw">
+                    <input class="mt-4" type="text" placeholder="Email" name="user_email" id="user_email">
                 </div>
 
                 <button class="mt-5">Cadastre-se</button>
