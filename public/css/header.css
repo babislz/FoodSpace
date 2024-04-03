@@ -36,3 +36,9 @@
     object-fit: cover;
     height: 25px;
 }
+
+@media screen and (max-width: 1314px){
+    #pesquisa{
+        width: 80%;
+    }
+}

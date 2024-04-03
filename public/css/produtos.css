@@ -1,6 +1,5 @@
 @import url(defs.css);
 
-
 #carouselExample{
     padding-top: 40px;
 }
@@ -39,4 +38,11 @@
 
 #carousel-promocoes{
     padding-top: 40px;
+}
+
+@media screen and (max-width: 1314px){
+    #carouselExample{
+        padding-top: 40px;
+    }
+    
 }
