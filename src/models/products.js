@@ -1,5 +1,6 @@
 const sql = require("sequelize")
 const database = require("../config/db")
+const store = require("./stores")
 
 const products = database.define("Products", {
     product_id:{
@@ -16,6 +17,9 @@ const products = database.define("Products", {
         type: sql.DECIMAL(9,2),
         allowNull: false
     }
+})
+products.belongsTo(store, {
+    foreignKey: 'store_id'
 })
 
 module.exports = products
