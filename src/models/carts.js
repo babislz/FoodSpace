@@ -1,5 +1,6 @@
 const sql = require("sequelize")
 const database = require("../config/db")
+const store = require("./stores")
 
 const carts = database.define("Carts", {
     cart_id:{
@@ -16,5 +17,7 @@ const carts = database.define("Carts", {
         type: sql.DECIMAL(9,2)
     }
 })
-
+carts.belongsTo(store, {
+    foreignKey: 'store_id'
+})
 module.exports = carts

@@ -1,5 +1,6 @@
 const sql = require("sequelize")
 const database = require("../config/db")
+const user = require("./users")
 
 const payments = database.define("Payments", {
     card_id: {
@@ -21,5 +22,7 @@ const payments = database.define("Payments", {
         allowNull: false
     }
 })
-
+payments.belongsTo(user, {
+    foreignKey: 'user_id'
+})
 module.exports = payments
