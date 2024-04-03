@@ -8,8 +8,20 @@ module.exports = {
         const parameters = req.body;
         
         const user = users.findOne({
-            where
+            where: {
+                user_name: parameters.user_name, user_pw: parameters.user_pw
+            }
         });
+
+        const data = {
+            id: user.user_id,
+            full_name: user.full_name,
+            email: user.user_email,
+            phone: user.user_phone,
+            name: user.user_name
+        };
+
+        res.send(data);
     },
     async getCadastro(req, res) {
         res.render('../views/cadastro.ejs')
