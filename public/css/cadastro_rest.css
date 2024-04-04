@@ -1,0 +1,107 @@
+#header-options{
+    display: flex;
+    gap: 20px;
+}
+button{
+    border-radius: 6px;
+}
+#cadastro-ajuda{
+    display: flex;
+    gap: 20px;
+    padding-right: 50px;
+}
+#button-cadastro{
+    border-style: none;
+    background-color: rgb(137, 43, 226);
+    color: white;
+}
+#button-entrar{
+    border: 1px solid blueviolet;
+    color: blueviolet;
+}
+.button-op{
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#logo-image{
+    object-fit: cover;
+    height: 90px;
+}
+.navbar{
+    height: 90px;
+}
+main{
+    height: 90.6vh;
+    background-image: url("/public/img/solar.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 100px;
+}
+
+.cadastro-holder {
+    width: 40vw;
+    min-width: 320px;
+    /* height: 65vh; */
+
+    background-color: rgba(255, 255, 255, 0.548);
+    backdrop-filter: blur(5px);
+
+    /* margin-left: 300px; */
+    border-radius: 40px;
+
+    box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+#cadastroForm {
+    height: 100%;
+}
+
+.form-inputs input {
+    height: 50px;
+    border-radius: 35px;
+    border: none;
+    background-color: #EFEBEB;
+    padding: 30px;
+    box-shadow: 0 3px 3.5px 0 rgba(0, 0, 0, 0.25);
+}
+
+#cadastroForm button {
+    width: 150px;
+    height: 50px;
+    background-color: #AF77C2;
+    color: white;
+    border-radius: 11px;
+    border: none;
+}
+#text{
+    color: white;
+    position: absolute;
+    left: 12%;
+    top: 31%;
+    font-size: 55px;
+}
+#text-colored{
+    color: rgb(163, 93, 228);
+}
+#text-2{
+    display: flex;
+    align-items: center;
+    color: white;
+    position: absolute;
+    left: 12%;
+    top: 48%;
+    background-color: rgba(255, 255, 255, 0.171);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#logo-cadastro{
+    object-fit: cover;
+    height: 80px;
+}
