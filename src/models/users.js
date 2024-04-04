@@ -26,7 +26,7 @@ const user = database.define("Users", {
         allowNull: false
     },
     user_phone: {
-        type: sql.INTEGER,
+        type: sql.STRING(255),
         allowNull: false
     }
 })
