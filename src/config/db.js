@@ -1,4 +1,5 @@
 const sql = require("sequelize")
+// const database = new sql("FoodSpaceDB", "FoodSpaceAdm", "foodspace2024", {dialect:"mssql", host:"localhost", port:64741})
 const database = new sql("FoodSpaceDB", "FoodSpaceAdm", "foodspace2024", {dialect:"mssql", host:"localhost", port:64741})
 
 database.authenticate().then(() => {
