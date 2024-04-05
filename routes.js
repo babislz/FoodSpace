@@ -1,7 +1,6 @@
 const express = require('express');
 const route = express.Router();
 
-const home = require('./src/controllers/home');
 const compra = require('./src/controllers/compra');
 const inicio = require('./src/controllers/inicio');
 const restaurantes = require('./src/controllers/produtos');
