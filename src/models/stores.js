@@ -14,11 +14,11 @@ const stores = database.define("Stores", {
         allowNull: false
     },
     open_time: {
-        type: sql.TIME,
+        type: sql.STRING(8),
         allowNull: false
     },
     close_time: {
-        type: sql.TIME,
+        type: sql.STRING(8),
         allowNull: false
     },
     banner_url: {
