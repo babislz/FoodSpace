@@ -32,16 +32,21 @@ button{
     height: 90px;
 }
 main{
+    position: relative;
     height: 90.2vh;
-    background-image: url("/img/solar.gif");
+    background-image: url("/public/img/fundo-cadastro-produtos.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: end;
-    padding-right: 100px;
+    justify-content: center;
 }
-
+#backimage{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 40%);
+}
 .cadastro-holder {
     width: 40vw;
     min-width: 320px;
@@ -59,7 +64,8 @@ main{
     height: 100%;
 }
 
-.form-inputs input {
+.form-inputs input, #image_input {
+
     border-radius: 10px;
     border: none;
     background-color: #EFEBEB;
@@ -93,7 +99,7 @@ main{
     left: 12%;
     top: 48%;
     background-color: rgba(255, 255, 255, 0.171);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
     border-radius: 50px;
     padding: 10px;
     padding-left: 30px;
@@ -111,4 +117,14 @@ main{
 }
 #button-cadastro-loja{
     height: 50px;
+}
+#upload-product-img{
+    background: none;
+    box-shadow: none;
+}
+
+#upload_button {
+    position: absolute;
+    width: 25px;
+    right: 5%;
 }

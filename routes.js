@@ -6,7 +6,8 @@ const inicio = require('./src/controllers/inicio');
 const restaurantes = require('./src/controllers/produtos');
 const restaurante = require('./src/controllers/restaurante');
 const historico = require('./src/controllers/historico');
-const invalid = require('./src/controllers/invalid_path')
+const invalid = require('./src/controllers/invalid_path');
+const cadastro_restaurante = require('./src/controllers/store_register');
 
 route.get('/', inicio.getInicio);
 route.post('/', inicio.postLogin);
@@ -19,6 +20,9 @@ route.get('/restaurantes', restaurantes.getProdutos);
 route.get ('/restaurante', restaurante.getRestaurante);
 route.get('/compra', compra.getCompra);
 route.get('/historico', historico.getHistorico);
+
+route.get('/cadastro-restaurantes', cadastro_restaurante.getStoreRegister);
+route.post('/cadastro-restaurantes', cadastro_restaurante.postStoreRegister);
 
 route.get('/*', invalid.invalidPath);
 
