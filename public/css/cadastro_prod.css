@@ -1,23 +1,29 @@
-#header-options{
-    display: flex;
-    gap: 20px;
+@import url(defs.css);
+body, nav {
+    background-color: var(--background-light);
 }
-button{
+
+#ajuda button {
+    color: var(--text-primary);
+}
+
+button{ 
     border-radius: 6px;
 }
-#cadastro-ajuda{
+/* #cadastro-ajuda{
     display: flex;
     gap: 20px;
     padding-right: 50px;
-}
+} */
 #button-cadastro{
     border-style: none;
-    background-color: rgb(137, 43, 226);
+    background-color: blueviolet;
     color: white;
 }
 #button-entrar{
     border: 1px solid blueviolet;
     color: blueviolet;
+    background-color: transparent;
 }
 .button-op{
     padding: 10px;
@@ -31,10 +37,46 @@ button{
 .navbar{
     height: 90px;
 }
+
+
+#header-options:not(.show):not(.collapsing) {
+    div {
+        width: 100%;
+    }
+    
+    button {
+        margin-right: 20px;
+    }
+}
+
+#header-options.show, #header-options.collapsing{
+    div {
+        width: 100%;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 90px;
+    padding: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 main{
     position: relative;
     height: 90.2vh;
-    background-image: url("/public/img/fundo-cadastro-produtos.jpg");
+    background-image: url("/img/fundo-cadastro-produtos.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -76,13 +118,13 @@ main{
 #cadastroForm button {
     width: 150px;
     height: 50px;
-    background-color: #AF77C2;
-    color: white;
+    background-color: var(--placeholder-color);
+    color: var(--text-primary);
     border-radius: 10px;
     border: none;
 }
 #text{
-    color: white;
+    color: var(--text-primary);
     position: absolute;
     left: 12%;
     top: 31%;
@@ -94,11 +136,11 @@ main{
 #text-2{
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--text-primary);
     position: absolute;
     left: 12%;
     top: 48%;
-    background-color: rgba(255, 255, 255, 0.171);
+    background-color: blueviolet;
     backdrop-filter: blur(3px);
     border-radius: 50px;
     padding: 10px;

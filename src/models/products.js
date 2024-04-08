@@ -16,6 +16,14 @@ const products = database.define("Products", {
     product_price:{
         type: sql.DECIMAL(9,2),
         allowNull: false
+    },
+    product_photo:{
+        type: sql.STRING(50),
+        allowNull: true
+    },
+    product_description:{
+        type: sql.STRING(255),
+        allowNull: false
     }
 })
 products.belongsTo(store, {

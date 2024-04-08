@@ -1,10 +1,12 @@
+@import url(defs.css);
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-body {
-    background-color: #F4F3F3;
+body, nav {
+    background-color: var(--background-light);
 }
 #profileImg {
     width: 110px;
@@ -62,6 +64,10 @@ body {
 .item img {
     object-fit: contain;
     width: 100px;
+}
+
+footer {
+    color: var(--text-primary);
 }
 
 @media  only screen and (max-width: 1100px) {

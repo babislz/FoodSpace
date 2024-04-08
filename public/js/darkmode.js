@@ -1,8 +1,10 @@
 const toggle = document.querySelector("#bb8-slider input");
 const logo = document.getElementById("logo-image");
 
-const toggleDarkMode = () => {
-    if (toggle.checked) {
+let enabled = false;
+
+const applyDarkMode = () => {
+    if (enabled) {
         document.body.classList.add("dark-mode");
         logo.setAttribute("src", "/img/logo-white.png")
         localStorage.setItem("dark-mode", true);
@@ -15,15 +17,34 @@ const toggleDarkMode = () => {
     localStorage.setItem("dark-mode", false);
 };
 
-toggle.addEventListener("change", () => {
-    toggleDarkMode();
-})
+if (toggle) {
+    toggle.addEventListener("change", () => {
+        toggleDarkMode();    
+    })    
+} 
+
+const toggleDarkMode = () => {
+    if (toggle) {
+        enabled = toggle.checked;
+    } else {
+        enabled = !enabled
+    }
+
+    applyDarkMode();
+}
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const mode = localStorage.getItem("dark-mode");
 
-    toggle.checked = mode === "true" ? true : false;
-    toggleDarkMode();
+    enabled = mode === "true" ? true : false;
+
+    if (toggle) {
+        toggle.checked = enabled;
+    }
+
+    applyDarkMode();
 }); 
 
 
