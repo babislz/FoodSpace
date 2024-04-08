@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="./css/bb8.css">
     <link rel="stylesheet" href="./css/restaurante.css">
     <script src="/js/restaurante.js" defer></script>
+    <% if (store) { %>
     <script>
-      <% if (store) { %>
-        const open_time = "<%- store.open_time %>";
-        const close_time = "<%- store.close_time %>";
-      <% } %>
+      const open_time = "<%- store.open_time %>";
+      const close_time = "<%- store.close_time %>";
     </script>
+    <% } %>
     <script src="/js/darkmode.js" defer></script>
 
 </head>
