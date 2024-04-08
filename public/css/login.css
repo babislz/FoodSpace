@@ -23,6 +23,11 @@ body {
 }
 
 #loginForm {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: white;
     width: 35vw;
     height: 50vh;
@@ -97,4 +102,20 @@ body {
 .bloons img {
     object-fit: cover;
     width: 280px;
+}
+
+#invalid_login {
+    display: none;
+    position: absolute;
+    top: -180px;
+    font-size: 30px;
+    color: blueviolet;
+    background-color: rgba(104, 101, 101, 0.34);
+    padding: 30px;
+    padding-left:  50px;
+    padding-right:  50px;
+    border-radius: 20px;
+
+    transition: opacity 500ms;
+    opacity: 0;
 }

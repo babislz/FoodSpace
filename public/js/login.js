@@ -26,7 +26,32 @@ const fetchLoginRequest = (data) => {
     return x;
 }
 
+const invalidUser = () => {
+    const message = document.getElementById("invalid_login");
+
+    message.style.display = "block";
+    message.style.opacity = "0";
+
+
+    setTimeout(() => {
+        message.style.opacity = "100%";
+        
+        setTimeout(() => {
+            message.style.opacity = "0";
+        
+            
+            setTimeout(() => {
+                message.style.display = "none";
+            }, 500)
+        }, 2000)
+    }, 100);
+}
+
 const loginUser = (data) => {
+    if (!data) {
+        invalidUser();
+        return;
+    }
     localStorage.setItem("user_login", JSON.stringify(data));
 
     window.location.replace("/restaurantes")
@@ -53,6 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let login = localStorage.getItem("user_login");
 
 
-    if (login)
+    if (login && login != 'null')
         window.location.replace("/restaurantes")
 })
