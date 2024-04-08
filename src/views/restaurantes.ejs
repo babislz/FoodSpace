@@ -15,19 +15,22 @@
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/footer.css">
 
-  <script src="/js/produtos.js" defer></script>
+  <script src="/js/restaurantes.js" defer></script>
+  <script src="/js/darkmode.js" defer></script>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img id="logo-image" src="/img/FoodSpace__1_-removebg-preview 1.png"
+        <a class="navbar-brand" href="/restaurantes"><img id="logo-image" src="/img/logo-black.png"
             alt=""></a>
         <form id="searching" class="d-flex" role="search">
           <input id="pesquisa" class="form-control me-2" type="search" placeholder="Busque por itens ou lojas"
             aria-label="Search">
-          <img id="button-search" src="/img/lupa.png" class="btn btn-outline-success" type="submit"></img>
+          <button id="button-search" class="btn btn-outline-success" type="submit">
+            <img src="/img/lupa.png">
+          </button>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,8 +98,8 @@
     </nav>
   </header>
   <main>
-    <h4 class="title">Recomendados para você</h4>
-    <div id="carouselExample" class="carousel slide">
+    <h4 class="rec title">Recomendados para você</h4>
+    <div id="recomendados" class="rec carousel slide">
       <div class="carousel-inner">
 
         <div class="carousel-item active container-fluid">
@@ -281,8 +284,8 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <h4 id="title-categorias" class="title">Categorias</h4>
-    <div id="categorias">
+    <h4 id="title-categorias" class="categorias title">Categorias</h4>
+    <div id="categorias" class="categorias">
       <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="circulo"></div>
         <h6 class="pt-3">COMIDAS</h6>
@@ -346,8 +349,8 @@
       </div>
     </div>
 
-    <h4 class="title">Promoções</h4>
-    <div id="carousel-promocoes" class="carousel slide">
+    <h4 class="title promo">Promoções</h4>
+    <div id="carousel-promocoes" class="promo carousel slide">
       <div class="carousel-inner">
 
         <div class="carousel-item active container-fluid">
@@ -532,7 +535,7 @@
     </div>
   </main>
   <footer>
-    <div id="footer-info" class="bg-body-tertiary d-flex justify-content-between px-5 py-4">
+    <div id="footer-info" class="d-flex justify-content-between px-5 py-4">
       <div class="d-flex">
         <a class="navbar-brand" href="#"><img id="logo-image" src="/img/FoodSpace__1_-removebg-preview 1.png"
             alt=""></a>
@@ -542,17 +545,33 @@
         </div>
       </div>
       <div class="d-flex flex-column justify-content-center">
-        <p>Alguma coisa</p>
-        <p>Mais alguma coisa</p>
+        <a href="/cadastro-restaurantes">Cadastre seu restaurante!</a>
       </div>
       <div class="d-flex flex-column justify-content-center" id="social">
         <div class="container-fluid d-flex justify-content-around align-items-center">
           <div class="d-flex align-items-center justify-content-center">
-            <img src="/img/insta.svg" class="pe-2" alt="">
+            <!-- <img src="/img/insta.svg" class="pe-2" alt=""> -->
+            <svg class="pe-2" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.54 0C3.38284 0 0 3.38284 0 7.54V17.98C0 22.1372 3.38284 25.52 7.54 25.52H17.98C22.1372 25.52 25.52 22.1372 25.52 17.98V7.54C25.52 3.38284 22.1372 0 17.98 0H7.54ZM7.54 1.16H17.98C21.5102 1.16 24.36 4.00984 24.36 7.54V17.98C24.36 21.5102 21.5102 24.36 17.98 24.36H7.54C4.00984 24.36 1.16 21.5102 1.16 17.98V7.54C1.16 4.00984 4.00984 1.16 7.54 1.16ZM19.72 4.64C19.4123 4.64 19.1173 4.76221 18.8998 4.97976C18.6822 5.1973 18.56 5.49235 18.56 5.8C18.56 6.10765 18.6822 6.4027 18.8998 6.62024C19.1173 6.83779 19.4123 6.96 19.72 6.96C20.0277 6.96 20.3227 6.83779 20.5402 6.62024C20.7578 6.4027 20.88 6.10765 20.88 5.8C20.88 5.49235 20.7578 5.1973 20.5402 4.97976C20.3227 4.76221 20.0277 4.64 19.72 4.64ZM12.76 6.38C9.24329 6.38 6.38 9.24329 6.38 12.76C6.38 16.2767 9.24329 19.14 12.76 19.14C16.2767 19.14 19.14 16.2767 19.14 12.76C19.14 9.24329 16.2767 6.38 12.76 6.38ZM12.76 7.54C15.6498 7.54 17.98 9.8702 17.98 12.76C17.98 15.6498 15.6498 17.98 12.76 17.98C9.8702 17.98 7.54 15.6498 7.54 12.76C7.54 9.8702 9.8702 7.54 12.76 7.54Z" fill="currentColor"/>
+              </svg>
+              
             <p>Instagram</p>
           </div>
           <div class="d-flex align-items-center justify-content-center">
-            <img src="/img/tt.svg" class="pe-2" alt="">
+            <!-- <img src="/img/tt.svg" class="pe-2" alt=""> -->
+            <svg class="pe-2" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_30_292)">
+                <path
+                  d="M18.4781 2.95312C15.2486 2.95312 12.6225 5.5793 12.6225 8.80875C12.6225 9.00281 12.671 9.19266 12.69 9.3825C8.69691 9.0007 5.16582 7.07695 2.76746 4.13437C2.65566 3.99305 2.48269 3.91711 2.30129 3.92977C2.12199 3.94242 1.96168 4.04578 1.87308 4.20187C1.36894 5.06883 1.07996 6.06656 1.07996 7.13812C1.07996 8.43539 1.54402 9.62297 2.26121 10.5975C2.12199 10.5363 1.97011 10.5026 1.83933 10.4287C1.67269 10.3402 1.4723 10.3444 1.30988 10.4414C1.14746 10.5384 1.04832 10.7135 1.04621 10.9012V10.9687C1.04621 12.9579 2.07558 14.6855 3.59433 15.7444C3.57746 15.7423 3.56058 15.7486 3.54371 15.7444C3.35808 15.7127 3.17035 15.7781 3.04589 15.9195C2.92144 16.0608 2.88136 16.257 2.93621 16.4362C3.53949 18.3115 5.07933 19.7437 6.98621 20.2669C5.46746 21.1697 3.70613 21.7012 1.80558 21.7012C1.39425 21.7012 0.999801 21.6802 0.607457 21.6337C0.354332 21.6 0.111754 21.7477 0.0273792 21.9881C-0.0591052 22.2286 0.0358167 22.4965 0.253082 22.6294C2.68941 24.1924 5.58136 25.11 8.69058 25.11C13.7299 25.11 17.6828 23.0048 20.3343 19.9969C22.9858 16.9889 24.3675 13.0823 24.3675 9.43312C24.3675 9.27914 24.3548 9.12937 24.3506 8.9775C25.3399 8.22023 26.2237 7.33219 26.9156 6.29437C27.0527 6.09398 27.0379 5.82609 26.8797 5.64047C26.7236 5.45484 26.46 5.39789 26.2406 5.50125C25.9621 5.6257 25.6373 5.63836 25.3462 5.7375C25.7301 5.22492 26.0592 4.67227 26.2575 4.05C26.325 3.83695 26.2511 3.60281 26.076 3.46359C25.901 3.32648 25.6563 3.30961 25.4643 3.42562C24.5425 3.97195 23.5216 4.35586 22.4437 4.59C21.3975 3.61125 20.02 2.95312 18.4781 2.95312ZM18.4781 4.03312C19.8555 4.03312 21.1 4.62164 21.9712 5.55187C22.102 5.68687 22.2939 5.74383 22.4775 5.70375C23.182 5.56453 23.8507 5.35992 24.5025 5.09625C24.127 5.6025 23.6629 6.03492 23.1187 6.36187C22.8719 6.48211 22.7559 6.76687 22.8466 7.02633C22.9352 7.28367 23.2052 7.43344 23.4731 7.37437C24.0131 7.30898 24.494 7.08961 25.0087 6.9525C24.5468 7.45242 24.0405 7.90383 23.49 8.3025C23.3402 8.41219 23.2579 8.58937 23.2706 8.775C23.279 8.99437 23.2875 9.21164 23.2875 9.43312C23.2875 12.8081 21.9923 16.4721 19.5243 19.2712C17.0564 22.0704 13.4325 24.03 8.69058 24.03C6.53691 24.03 4.50347 23.5533 2.66621 22.7137C4.94433 22.5387 7.04527 21.7329 8.74121 20.4019C8.91839 20.2605 8.988 20.0243 8.91628 19.8091C8.84457 19.594 8.64629 19.4463 8.42058 19.44C6.64027 19.4084 5.14894 18.3727 4.35371 16.9087C4.38324 16.9087 4.40855 16.9087 4.43808 16.9087C4.97175 16.9087 5.4991 16.8412 5.99058 16.7062C6.22683 16.6366 6.38925 16.4173 6.38082 16.1705C6.37238 15.9237 6.1973 15.7127 5.95683 15.66C4.03519 15.2719 2.59449 13.7067 2.26121 11.7619C2.80543 11.9496 3.3623 12.0973 3.96558 12.1162C4.21238 12.131 4.43597 11.977 4.51191 11.7429C4.58785 11.5087 4.49504 11.2514 4.28621 11.1206C3.00371 10.2621 2.15996 8.80031 2.15996 7.13812C2.15996 6.52219 2.32027 5.95687 2.53121 5.41687C5.23121 8.38055 9.01121 10.3486 13.2806 10.5637C13.4493 10.5722 13.6139 10.5026 13.7235 10.3739C13.8332 10.2431 13.8754 10.0702 13.8375 9.90562C13.7552 9.55547 13.7025 9.18422 13.7025 8.80875C13.7025 6.16359 15.8329 4.03312 18.4781 4.03312Z"
+                  fill="currentColor" />
+              </g>
+              <defs>
+                <clipPath id="clip0_30_292">
+                  <rect width="27" height="27" fill="currentColor" />
+                </clipPath>
+              </defs>
+            </svg>
+          
             <p>Twitter</p>
           </div>
         </div>

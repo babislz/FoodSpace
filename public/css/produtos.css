@@ -1,6 +1,11 @@
 @import url(defs.css);
 
-#carouselExample{
+body, main {
+    background-color: var(--background-light);
+    color: var(--text-primary);
+    transition: 300ms;
+}
+#recomendados{
     padding-top: 40px;
 }
 .title{
@@ -16,9 +21,12 @@
 #categorias{
     display: flex;
     justify-content: space-around;
-    padding-left: 500px;
-    padding-right: 500px;
+    padding-left: 20vw;
+    padding-right: 20vw;
     padding-top: 50px;
+}
+#categorias div {
+    width: 100px;
 }
 #title-categorias{
     padding-top: 50px;
@@ -50,3 +58,10 @@
 #user_img::before {
     content: attr(data-before);
 }
+
+
+#restaurantes-deck .card {
+    width: 22rem;
+}
+
+

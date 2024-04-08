@@ -11,52 +11,51 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/cadastro_rest.css">
+    <script src="/js/cadastro_rest.js" defer></script>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img id="logo-image" src="/img/FoodSpace__1_-removebg-preview 1.png" alt=""></a>
-                <div id="header-options">
-                    <div id="cadastro-ajuda">
-                        <div id="endereco" class="op dropdown d-flex justify-content-center">
-                            <button id="button-endereco" class="btn dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Ajuda
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"></a>Central de Ajuda</li>
-                                <li><a class="dropdown-item" href="#"></a>Perguntas Frequentes</li>
-                            </ul>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+            <a class="navbar-brand p-0" href="#"><img id="logo-image" src="/img/logo-black.png" alt=""></a>
+                <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#header-options"
+                    aria-controls="header-option" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="header-options" class="collapse navbar-collapse bg-body-tertiary">
+                    <div class="navbar-nav m-0">
+                        <div class="nav-item me-auto" id="cadastro-ajuda">
+                            <div id="ajuda" class="op dropdown">
+                                <button id="button-ajuda" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Ajuda
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"></a>Central de Ajuda</li>
+                                    <li><a class="dropdown-item" href="#"></a>Perguntas Frequentes</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <button class="button-op" id="button-entrar" type="button">
-                        Entrar
-                    </button>
-                    <div class="d-flex flex-row pe-5">
-                        <div id="endereco" class="dropdown d-flex justify-content-center">
-                            <button class="button-op" id="button-cadastro" type="button">
-                                Cadastrar
-                            </button>
-                        </div>
+                        <button class="nav-item button-op" id="button-entrar" type="button">
+                            Entrar
+                        </button>
+                        <button class="nav-item button-op" id="button-cadastro" type="button">
+                            Cadastrar
+                        </button>
                     </div>
                 </div>
-            </div>
         </nav>
     </header>
     <main>
-        <h3 id="text">Sua empresa necessita de<br>uma <span id="text-colored">gestão ágil?</span></h3>
-        <div id="text-2">
-            <h4>Sua empresa pede</h4>
-            <img id="logo-cadastro" src="/img/logo-white.png" alt="">
+        <div id="text-holder" class="d-flex flex-column">
+            <h3 id="text">Sua empresa necessita de<br>uma <span id="text-colored">gestão ágil?</span></h3>
+            <div id="text-2">
+                <h4>Sua empresa pede</h4>
+                <img id="logo-cadastro" src="/img/logo-white.png" alt="">
+            </div>
         </div>
         <div class="cadastro-holder">
-            <form id="cadastroForm" class="d-flex flex-column justify-content-between p-5" action="/cadastro-restaurantes" method="post">
+            <form id="cadastroForm" class="d-flex flex-column justify-content-between" action="/cadastro-restaurantes" method="post">
                 <h3>Cadastre seu negócio!</h2>
                 <div class="form-inputs d-flex flex-column mt-4">
                     <div class="d-flex flex-column container-fluid p-0 gap-3">

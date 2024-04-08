@@ -3,7 +3,7 @@ const route = express.Router();
 
 const compra = require('./src/controllers/compra');
 const inicio = require('./src/controllers/inicio');
-const restaurantes = require('./src/controllers/produtos');
+const restaurantes = require('./src/controllers/restaurantes');
 const restaurante = require('./src/controllers/restaurante');
 const historico = require('./src/controllers/historico');
 const invalid = require('./src/controllers/invalid_path');
@@ -15,7 +15,9 @@ route.post('/', inicio.postLogin);
 route.get('/cadastro', inicio.getCadastro)
 route.post('/cadastro', inicio.postCadastro)
 
-route.get('/restaurantes', restaurantes.getProdutos);
+route.get('/restaurantes', restaurantes.getRestaurantesPage);
+
+route.get('/restaurantes/list', restaurantes.getStores)
 
 route.get ('/restaurante', restaurante.getRestaurante);
 route.get('/compra', compra.getCompra);

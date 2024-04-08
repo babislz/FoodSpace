@@ -1,11 +1,22 @@
 :root{
     --dark-purple: #3c096c;
     --background-light: #f8f9fa;
+    --background-secondary: ;
+    --text-primary: black;
     --circle-blue: lightblue;
+    --header-input-border: var(--bs-border-color);
+    --placeholder-color: rgb(121, 121, 121);
 }
 
 .dark-mode {
     --dark-purple: #3c096c;
+    --text-primary: white;
     --background-light: rgb(11, 16, 20);
     --circle-blue: rgb(30, 195, 250);
+    --placeholder-color: rgb(91, 59, 122);
+    --header-input-border: blueviolet;
+}
+
+.color-bg-primary {
+    background-color: var(--background-light);
 }

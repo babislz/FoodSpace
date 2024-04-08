@@ -1,15 +1,11 @@
-#header-options{
-    display: flex;
-    gap: 20px;
-}
-button{
+button{ 
     border-radius: 6px;
 }
-#cadastro-ajuda{
+/* #cadastro-ajuda{
     display: flex;
     gap: 20px;
     padding-right: 50px;
-}
+} */
 #button-cadastro{
     border-style: none;
     background-color: rgb(137, 43, 226);
@@ -31,20 +27,61 @@ button{
 .navbar{
     height: 90px;
 }
+
+
+#header-options:not(.show):not(.collapsing) {
+    div {
+        width: 100%;
+    }
+    
+    button {
+        margin-right: 20px;
+    }
+}
+
+#header-options.show, #header-options.collapsing{
+    div {
+        width: 100%;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 90px;
+    padding: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 main{
-    height: 90.2vh;
+    /* height: 90.2vh; feito em js */
     background-image: url("/img/solar.gif");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: end;
-    padding-right: 100px;
+    justify-content: space-between;
 }
 
 .cadastro-holder {
+    position: relative;
+    transition: 300ms;
     width: 40vw;
-    min-width: 320px;
+    min-width: 420px;
+    height: 95%;
+
+    overflow-y: auto;
+    margin-right: 100px;
 
     background-color: rgba(255, 255, 255, 0.548);
     backdrop-filter: blur(5px);
@@ -53,6 +90,7 @@ main{
     border-radius: 40px;
 
     box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    padding: 50px;
 }
 
 #cadastroForm {
@@ -69,36 +107,53 @@ main{
 
 #cadastroForm button {
     width: 150px;
-    height: 50px;
+    /* height: 50px; */
+    min-height: 50px;
     background-color: #AF77C2;
     color: white;
     border-radius: 10px;
     border: none;
 }
-#text{
-    color: white;
-    position: absolute;
-    left: 12%;
-    top: 31%;
-    font-size: 55px;
+
+#text-holder {
+    margin-left: 10vw;
+    margin-top: -10%;
 }
+
+#text{
+    transition: 300ms;
+    color: white;
+    font-size: 55px;
+    text-wrap: nowrap;
+}
+
 #text-colored{
     color: rgb(163, 93, 228);
 }
+
 #text-2{
+    transition: 300ms;
     display: flex;
     align-items: center;
     color: white;
-    position: absolute;
-    left: 12%;
-    top: 48%;
+    /* position: absolute; */
+    /* left: 12%; */
+    /* top: 48%; */
     background-color: rgba(255, 255, 255, 0.171);
     backdrop-filter: blur(5px);
     border-radius: 50px;
+    margin-top: 20px;
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    width: min-content;
+    text-wrap: nowrap;
 }
+
+#text-2 h4 {
+    font-size: 23px;
+}
+
 #logo-cadastro{
     object-fit: cover;
     height: 80px;
@@ -111,4 +166,47 @@ main{
 }
 #button-cadastro-loja{
     height: 50px;
+}
+
+
+@media  screen and (max-width: 1500px) {
+    main {
+        flex-direction: column;
+        gap: 200px;
+    }
+
+    #text {
+        margin-top: 50px;
+    } 
+    .cadastro-holder {
+        margin: 0;
+        width: 60vw;
+        margin-bottom: 100px;
+    }
+
+}
+
+@media screen and (max-width: 730px) {
+    .cadastro-holder {
+        min-width: 320px;
+        padding: 25px;
+        border-radius: 10px;
+    }
+
+    #text {
+        font-size: 40px;
+    }
+    #text-2 h4 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 555px) {
+    #text {
+        font-size: 30px;
+    }
+    
+    #text-2 h4 {
+        font-size: 15px;
+    }
 }

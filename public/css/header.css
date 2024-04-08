@@ -10,7 +10,7 @@
 }
 
 #button-search{
-    border-color: rgb(63, 2, 63);
+    border-color: blueviolet;
 }
 
 #button-search:hover{
@@ -20,22 +20,59 @@
 #pesquisa{
     width: 450px;
     font-size: 14.7px;
+    background-color: var(--background-light);
+    border-color: var(--header-input-border);
+    color: var(--text-primary);
 }
 
 .navbar{
+    background-color: var(--background-light);
+    color: var(--text-primary);
     height: 100px;
 }
 
 #button-endereco{
     background-color: transparent;
     border: none;
-    color: black;
+    color: var(--text-primary)
 }
 
 .options-nav{
     object-fit: cover;
     height: 25px;
 }
+
+#button-search {
+    margin: 0;
+    padding: 6px;
+    width: 35px;
+    
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#button-search img {
+    object-fit: cover;
+
+    width: 100%;
+}
+
+.navbar, #pesquisa {
+    transition: 300ms; 
+}
+
+#pesquisa::placeholder {
+    color: var(--placeholder-color);
+    opacity: 1; /* Firefox */
+  }
+  
+
+#pesquisa::-ms-input-placeholder { /* Edge 12 -18 */
+    color: var(--placeholder-color);
+  }
+
 
 @media screen and (max-width: 1314px){
     #pesquisa{
