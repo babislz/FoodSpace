@@ -57,6 +57,8 @@ body, main {
 
 #user_img::before {
     content: attr(data-before);
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
