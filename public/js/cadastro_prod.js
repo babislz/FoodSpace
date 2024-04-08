@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const img = document.getElementById("image_input");
-const form = document.getElementById("upoad-product-img")
-img.addEventListener("click", () => {
-    form.click();
-});
+const form = document.getElementById("upload-product-img");
+const formInput = document.querySelector("#upload-product-img input")
+
+form.addEventListener("click", ()=>{
+    formInput.click()
+})
+
+formInput.addEventListener("change", ()=>{
+    form.querySelector("p").firstChild.nodeValue = formInput.value
 })

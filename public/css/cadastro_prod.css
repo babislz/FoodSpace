@@ -1,15 +1,11 @@
-#header-options{
-    display: flex;
-    gap: 20px;
-}
-button{
+button{ 
     border-radius: 6px;
 }
-#cadastro-ajuda{
+/* #cadastro-ajuda{
     display: flex;
     gap: 20px;
     padding-right: 50px;
-}
+} */
 #button-cadastro{
     border-style: none;
     background-color: rgb(137, 43, 226);
@@ -31,10 +27,46 @@ button{
 .navbar{
     height: 90px;
 }
+
+
+#header-options:not(.show):not(.collapsing) {
+    div {
+        width: 100%;
+    }
+    
+    button {
+        margin-right: 20px;
+    }
+}
+
+#header-options.show, #header-options.collapsing{
+    div {
+        width: 100%;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 90px;
+    padding: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 main{
     position: relative;
     height: 90.2vh;
-    background-image: url("/public/img/fundo-cadastro-produtos.jpg");
+    background-image: url("/img/fundo-cadastro-produtos.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
