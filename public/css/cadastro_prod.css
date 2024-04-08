@@ -1,3 +1,12 @@
+@import url(defs.css);
+body, nav {
+    background-color: var(--background-light);
+}
+
+#ajuda button {
+    color: var(--text-primary);
+}
+
 button{ 
     border-radius: 6px;
 }
@@ -8,12 +17,13 @@ button{
 } */
 #button-cadastro{
     border-style: none;
-    background-color: rgb(137, 43, 226);
+    background-color: blueviolet;
     color: white;
 }
 #button-entrar{
     border: 1px solid blueviolet;
     color: blueviolet;
+    background-color: transparent;
 }
 .button-op{
     padding: 10px;
@@ -108,13 +118,13 @@ main{
 #cadastroForm button {
     width: 150px;
     height: 50px;
-    background-color: #AF77C2;
-    color: white;
+    background-color: var(--placeholder-color);
+    color: var(--text-primary);
     border-radius: 10px;
     border: none;
 }
 #text{
-    color: white;
+    color: var(--text-primary);
     position: absolute;
     left: 12%;
     top: 31%;
@@ -126,11 +136,11 @@ main{
 #text-2{
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--text-primary);
     position: absolute;
     left: 12%;
     top: 48%;
-    background-color: rgba(255, 255, 255, 0.171);
+    background-color: blueviolet;
     backdrop-filter: blur(3px);
     border-radius: 50px;
     padding: 10px;
