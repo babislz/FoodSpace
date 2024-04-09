@@ -10,13 +10,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-  <link rel="stylesheet" href="/css/produtos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/restaurantes/produtos.css">
+  <link rel="stylesheet" href="/css/restaurantes/modal.css">
   <link rel="stylesheet" href="/css/bb8.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/footer.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/js/restaurantes.js" defer></script>
+  <script src="/js/restaurantes/restaurantes.js" defer></script>
+  <script src="/js/restaurantes/address.js" defer></script>
   <script src="/js/darkmode.js" defer></script>
 </head>
 
@@ -24,8 +27,7 @@
   <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/restaurantes"><img id="logo-image" src="/img/logo-black.png"
-            alt=""></a>
+        <a class="navbar-brand" href="/restaurantes"><img id="logo-image" src="/img/logo-black.png" alt=""></a>
         <form id="searching" class="d-flex" role="search">
           <input id="pesquisa" class="form-control me-2" type="search" placeholder="Busque por itens ou lojas"
             aria-label="Search">
@@ -37,26 +39,38 @@
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="d-flex flex-row pe-5">
+        <div class="d-flex flex-row pe-5 gap-5">
           <div id="endereco" class="dropdown d-flex justify-content-center">
             <button id="button-endereco" class="btn btn-secondary dropdown-toggle" type="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               Selecione um endereço
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a id="create_address" class="dropdown-item" href="#">Cadastrar novo endereço</a></li>
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="navbarText">
-            <div>
-              <button id="user_img" class="btn navbar-nav me-auto mb-2 ms-5  mb-lg-0" data-target="#user_info"
-                data-toggle="collapse"  aria-expanded="false" aria-controls="user_info">
-                <img class="options-nav" src="/img/user.png" onclick="document">
+            <div class="user-info-holder">
+              <button id="user_img" class="btn navbar-nav mb-2  mb-lg-0">
+                <img class="options-nav" src="/img/user.png">
               </button>
-              <div id="user_info" class="collapse">teste</div>
-              
+              <div id="user_info" class="collapse">
+                <div class="user-img-box">
+                  <img src="/img/user.png" alt="">
+                </div>
+
+                <div id="info_section" class="d-flex flex-column gap-4">
+                  <p id="info_full_name">Full Name: </p>
+                  <p id="info_email">Email: </p>
+                  <p id="info_phone">Phone: </p>
+                </div>
+
+                <button id="logout-button" class="btn btn-primary">Logout</button>
+              </div>
+              <div id="user_login_page" class="collapse">
+                <p>Efetue o login!</p>
+                <button class="btn btn-primary">Login</button>
+              </div>
             </div>
             <ul class="navbar-nav me-auto mb-2  ms-5 mb-lg-0">
               <img class="options-nav" src="/img/carrinho.png" alt="">
@@ -104,6 +118,42 @@
     </nav>
   </header>
   <main>
+    <div class="modal address_modal">
+      <div class="content">
+        <div class="address-form">
+          <button type="button" class="btn close-btn">
+            <i class="bi bi-x-lg"></i>
+          </button>
+
+          <form>
+            <h3 class="mb-5">Registre seu endereço!</h3>
+
+            <div class="d-flex flex-column gap-5">
+              <div class="container-fluid d-flex gap-3 flex-column">
+                <p>Cidade:</p>
+                <input name="city" class="" type="text" required>
+              </div>
+
+              <div  class="num-street d-flex">
+                <div class="container-fluid d-flex gap-3 flex-column">
+                  <p>Rua:</p>
+                  <input name="street" class="" type="text" required>
+                </div>
+                <div  class="a-number-holder container-fluid d-flex gap-3 flex-column">
+                  <p>Numero:</p>
+                  <input name="number" class="" type="text" required>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Cadastrar!</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+
     <h4 class="rec title">Recomendados para você</h4>
     <div id="recomendados" class="rec carousel slide">
       <div class="carousel-inner">
@@ -273,18 +323,24 @@
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carouselExample"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon position-absolute" style="left: 50px;" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
           </svg>
         </span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-theme="light" data-bs-target="#carouselExample" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-theme="light" data-bs-target="#carouselExample"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon position-absolute" style="right: 50px;" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
           </svg>
         </span>
         <span class="visually-hidden">Next</span>
@@ -312,7 +368,7 @@
 
     <h4 id="title-restaurantes" class="title">Restaurantes</h4>
     <div id="restaurantes-deck">
-      <div class="card-deck d-flex justify-content-center gap-5">
+      <div class="d-flex">
         <div class="card" style="width: 22rem;">
           <img id="restaurante-img-cards" src="/img/kfc.jpg" class="card-img-top" alt="...">
           <div class="card-body">
@@ -522,18 +578,24 @@
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carousel-promocoes" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carousel-promocoes"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon position-absolute" style="left: 50px;" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
           </svg>
         </span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-theme="light" data-bs-target="#carousel-promocoes" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-theme="light" data-bs-target="#carousel-promocoes"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon position-absolute" style="right: 50px;" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
           </svg>
         </span>
         <span class="visually-hidden">Next</span>
@@ -558,9 +620,11 @@
           <div class="d-flex align-items-center justify-content-center">
             <!-- <img src="/img/insta.svg" class="pe-2" alt=""> -->
             <svg class="pe-2" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.54 0C3.38284 0 0 3.38284 0 7.54V17.98C0 22.1372 3.38284 25.52 7.54 25.52H17.98C22.1372 25.52 25.52 22.1372 25.52 17.98V7.54C25.52 3.38284 22.1372 0 17.98 0H7.54ZM7.54 1.16H17.98C21.5102 1.16 24.36 4.00984 24.36 7.54V17.98C24.36 21.5102 21.5102 24.36 17.98 24.36H7.54C4.00984 24.36 1.16 21.5102 1.16 17.98V7.54C1.16 4.00984 4.00984 1.16 7.54 1.16ZM19.72 4.64C19.4123 4.64 19.1173 4.76221 18.8998 4.97976C18.6822 5.1973 18.56 5.49235 18.56 5.8C18.56 6.10765 18.6822 6.4027 18.8998 6.62024C19.1173 6.83779 19.4123 6.96 19.72 6.96C20.0277 6.96 20.3227 6.83779 20.5402 6.62024C20.7578 6.4027 20.88 6.10765 20.88 5.8C20.88 5.49235 20.7578 5.1973 20.5402 4.97976C20.3227 4.76221 20.0277 4.64 19.72 4.64ZM12.76 6.38C9.24329 6.38 6.38 9.24329 6.38 12.76C6.38 16.2767 9.24329 19.14 12.76 19.14C16.2767 19.14 19.14 16.2767 19.14 12.76C19.14 9.24329 16.2767 6.38 12.76 6.38ZM12.76 7.54C15.6498 7.54 17.98 9.8702 17.98 12.76C17.98 15.6498 15.6498 17.98 12.76 17.98C9.8702 17.98 7.54 15.6498 7.54 12.76C7.54 9.8702 9.8702 7.54 12.76 7.54Z" fill="currentColor"/>
-              </svg>
-              
+              <path
+                d="M7.54 0C3.38284 0 0 3.38284 0 7.54V17.98C0 22.1372 3.38284 25.52 7.54 25.52H17.98C22.1372 25.52 25.52 22.1372 25.52 17.98V7.54C25.52 3.38284 22.1372 0 17.98 0H7.54ZM7.54 1.16H17.98C21.5102 1.16 24.36 4.00984 24.36 7.54V17.98C24.36 21.5102 21.5102 24.36 17.98 24.36H7.54C4.00984 24.36 1.16 21.5102 1.16 17.98V7.54C1.16 4.00984 4.00984 1.16 7.54 1.16ZM19.72 4.64C19.4123 4.64 19.1173 4.76221 18.8998 4.97976C18.6822 5.1973 18.56 5.49235 18.56 5.8C18.56 6.10765 18.6822 6.4027 18.8998 6.62024C19.1173 6.83779 19.4123 6.96 19.72 6.96C20.0277 6.96 20.3227 6.83779 20.5402 6.62024C20.7578 6.4027 20.88 6.10765 20.88 5.8C20.88 5.49235 20.7578 5.1973 20.5402 4.97976C20.3227 4.76221 20.0277 4.64 19.72 4.64ZM12.76 6.38C9.24329 6.38 6.38 9.24329 6.38 12.76C6.38 16.2767 9.24329 19.14 12.76 19.14C16.2767 19.14 19.14 16.2767 19.14 12.76C19.14 9.24329 16.2767 6.38 12.76 6.38ZM12.76 7.54C15.6498 7.54 17.98 9.8702 17.98 12.76C17.98 15.6498 15.6498 17.98 12.76 17.98C9.8702 17.98 7.54 15.6498 7.54 12.76C7.54 9.8702 9.8702 7.54 12.76 7.54Z"
+                fill="currentColor" />
+            </svg>
+
             <p>Instagram</p>
           </div>
           <div class="d-flex align-items-center justify-content-center">
@@ -577,7 +641,7 @@
                 </clipPath>
               </defs>
             </svg>
-          
+
             <p>Twitter</p>
           </div>
         </div>

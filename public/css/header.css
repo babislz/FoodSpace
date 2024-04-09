@@ -1,23 +1,23 @@
-#logo-image{
+#logo-image {
     object-fit: cover;
     height: 90px;
 }
 
-#searching{
+#searching {
     display: flex;
     height: 35px;
     padding-left: 50px;
 }
 
-#button-search{
+#button-search {
     border-color: blueviolet;
 }
 
-#button-search:hover{
+#button-search:hover {
     background-color: rgba(150, 125, 172, 0.295);
 }
 
-#pesquisa{
+#pesquisa {
     width: 450px;
     font-size: 14.7px;
     background-color: var(--background-light);
@@ -25,19 +25,19 @@
     color: var(--text-primary);
 }
 
-.navbar{
+.navbar {
     background-color: var(--background-light);
     color: var(--text-primary);
     height: 100px;
 }
 
-#button-endereco{
+#button-endereco {
     background-color: transparent;
     border: none;
     color: var(--text-primary)
 }
 
-.options-nav{
+.options-nav {
     object-fit: cover;
     height: 25px;
 }
@@ -46,7 +46,7 @@
     margin: 0;
     padding: 6px;
     width: 35px;
-    
+
     display: flex;
 
     justify-content: center;
@@ -59,23 +59,102 @@
     width: 100%;
 }
 
-.navbar, #pesquisa {
-    transition: 300ms; 
+.navbar,
+#pesquisa {
+    transition: 300ms;
 }
 
 #pesquisa::placeholder {
     color: var(--placeholder-color);
-    opacity: 1; /* Firefox */
-  }
-  
+    opacity: 1;
+    /* Firefox */
+}
 
-#pesquisa::-ms-input-placeholder { /* Edge 12 -18 */
+
+#pesquisa::-ms-input-placeholder {
+    /* Edge 12 -18 */
     color: var(--placeholder-color);
-  }
+}
 
 
-@media screen and (max-width: 1314px){
-    #pesquisa{
+#user_img::before {
+    content: attr(data-before);
+    margin-right: 10px;
+    margin-left: 10px;
+    color: var(--text-primary);
+}
+
+.user-info-holder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#user_info, #user_login_page {
+    z-index: 10;
+    position: absolute;
+    right: auto;
+    left: auto;
+    top: 40px;
+    background-color: rgba(var(--background-light), 0.9);
+    color: var(--text-primary);
+    height: 200px;
+
+    backdrop-filter: blur(10px);
+    border-bottom: 1.5px solid blueviolet;
+    border-left: 1px solid blueviolet;
+    border-right: 1px solid blueviolet;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    text-wrap: nowrap;
+}
+
+#info_section {
+    border-radius: 30px;
+    padding: 20px;
+    transition: 500ms;
+}
+
+body.dark-mode {
+    #info_section {
+        background-color: rgba(0, 0, 0, 0.692);
+        border-radius: 30px;
+        padding: 20px;
+    }
+}
+
+#user_info.show,
+#user_info.collapsing,
+#user_login_page.show,
+#user_login_page.collapsing {
+    height: fit-content;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.user-img-box {
+    width: 65px;
+    height: 65px;
+    border: 1px solid blueviolet;
+    border-radius: 100%;
+    padding: 8px;
+}
+
+.user-img-box img {
+    object-fit: contain;
+    width: 100%;
+}
+
+
+
+@media screen and (max-width: 1314px) {
+    #pesquisa {
         width: 80%;
     }
 }

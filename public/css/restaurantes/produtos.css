@@ -1,4 +1,4 @@
-@import url(defs.css);
+@import url(/css/defs.css);
 
 body, main {
     background-color: var(--background-light);
@@ -36,9 +36,6 @@ body, main {
     padding-top: 50px;
 }
 
-#restaurantes-deck{
-    padding-top: 40px;
-}
 
 #restaurante-img-cards{
     height: 240px;
@@ -55,15 +52,30 @@ body, main {
     
 }
 
-#user_img::before {
-    content: attr(data-before);
-    margin-right: 10px;
-    margin-left: 10px;
+
+#restaurantes-deck{
+    margin-top: 40px;
 }
 
+#restaurantes-deck > div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10vw;
+}
 
 #restaurantes-deck .card {
-    width: 22rem;
+    flex-basis: calc(100%/3 - 10vw);
 }
 
+@media screen and (max-width: 1150px) {
+    #restaurantes-deck .card {
+        flex-basis: calc(100%/2 - 10vw);
+    }
+}
 
+@media screen and (max-width: 750px) {
+    #restaurantes-deck .card {
+        flex-basis: calc(100% - 10vw);
+    }
+}
