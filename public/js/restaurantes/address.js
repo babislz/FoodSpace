@@ -20,7 +20,8 @@ modal.hideModal = () => {
 
 $("#create_address")[0].addEventListener("click", () => {
     if (!getUserInfo()) {
-        alert("Voce precisa estar logado para registar endereços!")
+        alert("Você precisa estar logado para registrar endereços!")
+        return
     }
 
     modal.showModal();

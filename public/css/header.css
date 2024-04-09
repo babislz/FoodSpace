@@ -73,7 +73,7 @@
 
 #pesquisa::-ms-input-placeholder {
     /* Edge 12 -18 */
-    color: var(--placeholder-color);
+    color: var(--text-primary);
 }
 
 
@@ -93,10 +93,11 @@
 #user_info, #user_login_page {
     z-index: 10;
     position: absolute;
-    right: auto;
+    right: 0;
+    margin-right: 20px;
     left: auto;
-    top: 40px;
-    background-color: rgba(var(--background-light), 0.9);
+    top: 70px;
+    background-color: rgba(var(--background-light), 1);
     color: var(--text-primary);
     height: 200px;
 
@@ -150,6 +151,42 @@ body.dark-mode {
     object-fit: contain;
     width: 100%;
 }
+
+
+#header-options.show, #header-options.collapsing{
+    div {
+        width: 100%;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 90px;
+    padding: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#header-options:not(.show):not(.collapsing) {
+    > div {
+        width: 100%;
+    }
+    
+    button {
+        margin-right: 20px;
+    }
+}
+
 
 
 

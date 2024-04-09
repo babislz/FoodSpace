@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/bb8.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="./css/restaurante.css">
+    <link rel="stylesheet" href="/css/restaurantes/modal.css">
     <script src="/js/restaurante.js" defer></script>
     <% if (store) { %>
     <script>
@@ -17,39 +18,60 @@
       const close_time = "<%- store.close_time %>";
     </script>
     <% } %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/restaurantes/restaurantes.js" defer></script>
+    <script src="/js/restaurantes/address.js" defer></script>
     <script src="/js/darkmode.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img id="logo-image" src="/img/FoodSpace__1_-removebg-preview 1.png"
-            alt=""></a>
+        <a class="navbar-brand" href="/restaurantes"><img id="logo-image" src="/img/logo-black.png" alt=""></a>
         <form id="searching" class="d-flex" role="search">
           <input id="pesquisa" class="form-control me-2" type="search" placeholder="Busque por itens ou lojas"
             aria-label="Search">
-          <img id="button-search" src="/img/lupa.png" class="btn btn-outline-success" type="submit"></img>
+          <button id="button-search" class="btn btn-outline-success" type="submit">
+            <img src="/img/lupa.png">
+          </button>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="d-flex flex-row pe-5">
+        <div class="d-flex flex-row pe-5 gap-5">
           <div id="endereco" class="dropdown d-flex justify-content-center">
             <button id="button-endereco" class="btn btn-secondary dropdown-toggle" type="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               Selecione um endereço
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a id="create_address" class="dropdown-item" href="#">Cadastrar novo endereço</a></li>
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 ms-5  mb-lg-0">
-              <img class="options-nav" src="/img/user.png" alt="">
-            </ul>
+            <div class="user-info-holder">
+              <button id="user_img" class="btn navbar-nav mb-2  mb-lg-0">
+                <img class="options-nav" src="/img/user.png">
+              </button>
+              <div id="user_info" class="collapse">
+                <div class="user-img-box">
+                  <img src="/img/user.png" alt="">
+                </div>
+
+                <div id="info_section" class="d-flex flex-column gap-4">
+                  <p id="info_full_name">Full Name: </p>
+                  <p id="info_email">Email: </p>
+                  <p id="info_phone">Phone: </p>
+                </div>
+
+                <button id="logout-button" class="btn btn-primary">Logout</button>
+              </div>
+              <div id="user_login_page" class="collapse">
+                <p>Efetue o login!</p>
+                <button class="btn btn-primary">Login</button>
+              </div>
+            </div>
             <ul class="navbar-nav me-auto mb-2  ms-5 mb-lg-0">
               <img class="options-nav" src="/img/carrinho.png" alt="">
             </ul>
@@ -65,6 +87,7 @@
                     <div class="bb8-toggle__star"></div>
                     <div class="bb8-toggle__star"></div>
                     <div class="bb8-toggle__star"></div>
+                    
                     <div class="tatto-1"></div>
                     <div class="tatto-2"></div>
                     <div class="gomrassen"></div>
@@ -73,6 +96,7 @@
                     <div class="bb8-toggle__cloud"></div>
                     <div class="bb8-toggle__cloud"></div>
                     <div class="bb8-toggle__cloud"></div>
+                    
                   </div>
                   <div class="bb8">
                     <div class="bb8__head-container">
