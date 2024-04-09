@@ -59,11 +59,13 @@ $(".address-form form")[0].addEventListener("submit", (e) => {
         return x.text();
     }).then(msg => {
         alert(msg);
+        loadAddress();
     }).catch(err => console.log(err.message))
 }) 
 
 const address_list = document.querySelector("#endereco ul");
-document.addEventListener("DOMContentLoaded", () => {
+
+const loadAddress = () => {
     const user_info = getUserInfo();
 
     if (!user_info) return;
@@ -79,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }).then(x => {
         return x.json();
     }).then(data => {
+        address_list.querySelectorAll("li:not(:has(a[id]))").forEach(x => x.remove());
         data.forEach(a => {
             const li = document.createElement("li");
             const a_element = document.createElement('a');
@@ -92,6 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
             address_list.insertBefore(li, address_list.childNodes[0]);
         });
     }).catch(err => console.log(err.message));
+}
 
-
+document.addEventListener("DOMContentLoaded", () => {
+    loadAddress();
 });
