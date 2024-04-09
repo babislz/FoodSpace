@@ -18,6 +18,24 @@ body, main {
     width: 100px;
     height: 100px;
 }
+#comida{
+
+    background-image: url("/img/comida.jpg");
+    background-size: cover;
+}
+#bebida{
+
+    background-size: cover;
+    background-image: url("/img/bebidas.png");
+}
+#promo{
+    background-color: var(--background-light);
+    background-size: 150%;
+    background-position: center;
+
+    background-image: url("/img/promo.png");
+}
+
 #categorias{
     display: flex;
     justify-content: space-around;
