@@ -17,7 +17,7 @@ route.get('/', inicio.getInicio);
 route.post('/', inicio.postLogin);
 
 route.get('/cadastro', inicio.getCadastro)
-route.post('/cadastro', multer(config.userImageMulter).single('foto'), inicio.postCadastro)
+route.post('/cadastro', multer({storage: config.userImageMulter}).single('foto'), inicio.postCadastro)
 
 route.get('/restaurantes', restaurantes.getRestaurantesPage);
 
@@ -28,10 +28,10 @@ route.get('/compra', compra.getCompra);
 route.get('/historico', historico.getHistorico);
 
 route.get('/cadastro-restaurantes', cadastro_restaurante.getStoreRegister);
-route.post('/cadastro-restaurantes', multer(config.restaurantImageMulter).single('foto'), cadastro_restaurante.postStoreRegister);
+route.post('/cadastro-restaurantes', multer({storage: config.restaurantImageMulter}).single('foto'), cadastro_restaurante.postStoreRegister);
 
 route.get('/cadastro-produto', cadastro_prod.prodGet);
-route.post('/cadastro-produto', multer(config.productImageMulter).single('foto'), cadastro_prod.prodInsert);
+route.post('/cadastro-produto', multer({storage: config.productImageMulter}).single('foto'), cadastro_prod.prodInsert);
 
 route.post('/registerAddress', address_manager.registerAddress);
 route.get('/getAddresses', address_manager.getAddresses);

@@ -76,6 +76,17 @@
     color: var(--text-primary);
 }
 
+#user_img {
+    width: 40px;
+    height: 40px;
+}
+
+#user_img img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
 
 #user_img::before {
     content: attr(data-before);
@@ -144,12 +155,16 @@
     height: 65px;
     border: 1px solid blueviolet;
     border-radius: 100%;
-    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-img-box img {
-    object-fit: contain;
+    object-fit: cover;
+    height: 100%;
     width: 100%;
+    border-radius: 50%;
 }
 
 

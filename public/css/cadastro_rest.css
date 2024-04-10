@@ -62,7 +62,7 @@ main{
 }
 
 
-.form-inputs input {
+.form-inputs input, #file_label {
     border-radius: 10px;
     border: none;
     background-color: #EFEBEB;
@@ -155,6 +155,40 @@ main{
     background-color: var(--background-light);
 }
 
+#user_info, #user_login_page {
+    color:  white;
+}
+
+
+#store_image {
+    display: none;
+}
+
+#file_label {
+    position: relative;
+    width: 60%;
+    height: 50px;
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#file_label p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+    margin: 0;
+}
+
+#file_label img {
+    right: 5%;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    z-index: 10;
+}
 
 
 @media  screen and (max-width: 1500px) {
@@ -174,9 +208,7 @@ main{
 
 }
 
-#user_info, #user_login_page {
-    color:  white;
-}
+
 
 @media screen and (max-width: 730px) {
     .cadastro-holder {
@@ -200,5 +232,9 @@ main{
     
     #text-2 h4 {
         font-size: 15px;
+    }
+
+    #form-header {
+        flex-direction: column;
     }
 }

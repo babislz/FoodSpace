@@ -18,7 +18,10 @@
                 <h3>Registre-se para nunca mais passar fome!</h2>
 
                 <div class="form-inputs d-flex flex-column mt-4">
-                    <input type="file" name="foto">
+                    <input type="file" class="d-none" name="foto">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <img id="profile_picture" alt="" onclick="setProfilePicture()" src="/img/user.png">
+                    </div>
                     <input class="mt-4" type="text" placeholder="Login" name="user_name" id="user_name" required>
                     <input class="mt-4" type="text" placeholder="Nome Completo" name="user_fullname" id="user_fullname" required>
                     <input class="mt-4" type="text" placeholder="Celular" name="user_phone" id="user_phone" required>

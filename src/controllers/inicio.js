@@ -18,7 +18,8 @@ module.exports = {
                 full_name: user.full_name,
                 email: user.user_email,
                 phone: user.user_phone,
-                name: user.user_name
+                name: user.user_name,
+                user_photo: user.user_photo
             };
 
             res.send(JSON.stringify(data));

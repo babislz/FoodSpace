@@ -74,7 +74,14 @@
         <div class="cadastro-holder">
             <form id="cadastroForm" class="d-flex flex-column justify-content-between" action="/cadastro-restaurantes"
                 method="post">
-                <h3>Cadastre seu negócio!</h2>
+                    <div id="form-header" class="d-flex justify-content-between" style="width: 100%;">
+                        <h3>Cadastre seu negócio!</h2>
+                        <label id="file_label">
+                           <p> Imagem do restaurante</p>
+                            <img src="/img/upload.png" alt="">
+                        </label>
+                        <input id="store_image" type="file">
+                    </div>
                     <div class="form-inputs d-flex flex-column mt-4">
                         <input type="text" class="d-none" name="user_id" id="user_id">
                         <div class="d-flex flex-column container-fluid p-0 gap-3">

@@ -69,6 +69,8 @@ const loadUserInfo = () => {
     $("#info_full_name")[0].innerText += ` ${info.full_name}`;
     $("#info_email")[0].innerText += ` ${info.email}`;
     $("#info_phone")[0].innerText += ` ${info.phone}`;
+    $("#user_img > img")[0].setAttribute("src", `/img/${info.user_photo}`);
+    $(".user-img-box > img")[0].setAttribute("src", `img/${info.user_photo}`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

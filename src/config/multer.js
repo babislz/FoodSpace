@@ -4,12 +4,12 @@ const multer = require('multer');
 const userImageMulter = multer.diskStorage({
     // Criar destino de armazenamento
     destination: (req, file, cb) => {
-        cb(null, 'public/img/user_image'); // (Caso de erro, Local de destino)
+        cb(null, 'public/img'); // (Caso de erro, Local de destino)
     },
     // Renomear arquivo
     filename: (req, file, cb) => {
         // Criando um novo nome para o arquivo (Data em milisegundos - nome original)
-        const fileName = `${new Date().getTime()}-${file.originalname}`;
+        const fileName = `user_image/${new Date().getTime()}-${file.originalname}`;
         // Alterando efetivamente o nome
         cb(null, fileName); // cb = CallBack
     }
