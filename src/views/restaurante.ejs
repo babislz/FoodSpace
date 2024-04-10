@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="./css/restaurante.css">
     <link rel="stylesheet" href="/css/restaurantes/modal.css">
-    <script src="/js/restaurante.js" defer></script>
     <% if (store) { %>
     <script>
-      const owner_id = "<%- store.user_id %>";
-      const open_time = "<%- store.open_time %>";
-      const close_time = "<%- store.close_time %>";
+      const store_info = JSON.parse('<%- JSON.stringify(store) %>');
+      const owner_id = store_info.user_id;
+      const open_time = store_info.open_time;
+      const close_time = store_info.close_time;
     </script>
     <% } %>
+    <script src="/js/restaurante.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="/js/restaurantes/restaurantes.js" defer></script>
     <script src="/js/restaurantes/address.js" defer></script>
     <script src="/js/darkmode.js" defer></script>
 </head>
@@ -88,7 +88,6 @@
                     <div class="bb8-toggle__star"></div>
                     <div class="bb8-toggle__star"></div>
                     <div class="bb8-toggle__star"></div>
-                    
                     <div class="tatto-1"></div>
                     <div class="tatto-2"></div>
                     <div class="gomrassen"></div>
@@ -97,7 +96,6 @@
                     <div class="bb8-toggle__cloud"></div>
                     <div class="bb8-toggle__cloud"></div>
                     <div class="bb8-toggle__cloud"></div>
-                    
                   </div>
                   <div class="bb8">
                     <div class="bb8__head-container">
@@ -121,6 +119,40 @@
     </nav>
   </header>
   <main>
+    <div class="modal address_modal">
+      <div class="content">
+        <div class="address-form">
+          <button type="button" class="btn close-btn">
+            <i class="bi bi-x-lg"></i>
+          </button>
+
+          <form>
+            <h3 class="mb-5">Registre seu endereço!</h3>
+
+            <div class="d-flex flex-column gap-5">
+              <div class="container-fluid d-flex gap-3 flex-column">
+                <p>Cidade:</p>
+                <input name="city" class="" type="text" required>
+              </div>
+
+              <div  class="num-street d-flex">
+                <div class="container-fluid d-flex gap-3 flex-column">
+                  <p>Rua:</p>
+                  <input name="street" class="" type="text" required>
+                </div>
+                <div  class="a-number-holder container-fluid d-flex gap-3 flex-column">
+                  <p>Numero:</p>
+                  <input name="number" class="" type="text" required>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Cadastrar!</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
     <div class="restaurant-header position-relative d-flex justify-content-center align-items-center">
         <img src="./img/restaurante/r_img_default.svg" alt="">
         <h1 id="title" class="position-absolute">
