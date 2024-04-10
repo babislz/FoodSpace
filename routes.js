@@ -36,6 +36,7 @@ route.post('/cadastro-produto', multer({storage: config.productImageMulter}).sin
 route.post('/registerAddress', address_manager.registerAddress);
 route.get('/getAddresses', address_manager.getAddresses);
 
+
 route.get('/*', invalid.invalidPath);
 
 //TODO
