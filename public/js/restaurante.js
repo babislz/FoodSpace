@@ -1,7 +1,11 @@
-const getTime = (value) => {
-    let time = value.split(":");
 
-    return eval(`${time[0]} * 60 + ${time[1]}`); 
+
+const getTime = (value) => {
+    try {
+        let time = value.split(":");
+
+        return eval(`${time[0]} * 60 + ${time[1]}`); 
+    } catch {}
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,4 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         status.style.color = "red";
     }
 
+
 });
+

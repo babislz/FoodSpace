@@ -8,6 +8,8 @@
     --header-input-border: var(--bs-border-color);
     --placeholder-color: rgb(121, 121, 121);
     --form: rgba(214, 214, 214, 0.795);
+    --light-black: rgb(238, 238, 238);
+    --hist-detail: rgb(206, 206, 206);
 }
 
 .dark-mode {
@@ -19,6 +21,8 @@
     --placeholder-color: rgb(91, 59, 122);
     --header-input-border: rgb(132, 0, 255);
     --form: rgba(58, 58, 58, 0.753);
+    --light-black: rgb(54, 54, 54);
+    --hist-detail: rgb(19, 19, 19);
 }
 
 .color-bg-primary {
