@@ -28,6 +28,10 @@ const user = database.define("Users", {
     user_phone: {
         type: sql.STRING(255),
         allowNull: false
+    },
+    user_photo: {
+        type: sql.STRING(255),
+        allowNull: false
     }
 })
 

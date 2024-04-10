@@ -39,6 +39,15 @@ module.exports = {
         const parameters = req.body;
 
         console.log(parameters)
+        console.log(req.file);
+
+
+        let user_image = "user_image/user.png";
+
+        if (req.file) {
+            user_image = req.file.filename;;
+        }
+
         let new_user;
         try {
             new_user = await users.create({
@@ -46,6 +55,7 @@ module.exports = {
                 user_name: parameters.user_name,
                 user_pw: parameters.user_pw,
                 user_phone: parameters.user_phone,
+                user_photo: user_image,
                 full_name: parameters.user_fullname
             });
         } catch(e ) {
