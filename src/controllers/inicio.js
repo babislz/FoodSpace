@@ -39,15 +39,24 @@ module.exports = {
         const parameters = req.body;
 
         console.log(parameters)
+        let new_user;
+        try {
+            new_user = await users.create({
+                user_email: parameters.user_email,
+                user_name: parameters.user_name,
+                user_pw: parameters.user_pw,
+                user_phone: parameters.user_phone,
+                full_name: parameters.user_fullname
+            });
+        } catch(e ) {
+            console.log(e);
 
-        const new_user = await users.create({
-            user_email: parameters.user_email,
-            user_name: parameters.user_name,
-            user_pw: parameters.user_pw,
-            user_phone: parameters.user_phone,
-            full_name: "testt" //create input for this
-        });
+            res.statusCode = 500;
+            res.send("User already exists!")
+        }
 
         console.log(new_user);
+
+        res.redirect('/')
     }
 }

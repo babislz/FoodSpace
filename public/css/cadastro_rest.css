@@ -9,6 +9,12 @@ button{
     padding-right: 50px;
 } */
 
+nav {
+    background-color: var(--background-light);
+    color: var(--text-primary);
+    height: 100px;
+}
+
 
 main{
     /* height: 90.2vh; feito em js */
@@ -20,7 +26,7 @@ main{
     justify-content: space-between;
 }
 
-.cadastro-holder {
+.cadastro-holder, .cadastro-holder-unlogged {
     position: relative;
     transition: 300ms;
     width: 40vw;
@@ -38,6 +44,17 @@ main{
 
     box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.25);
     padding: 50px;
+}
+
+.cadastro-holder-unlogged {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro-holder-unlogged.d-flex {
+    height: 80vh;
 }
 
 #cadastroForm {
@@ -155,6 +172,10 @@ main{
         margin-bottom: 100px;
     }
 
+}
+
+#user_info, #user_login_page {
+    color:  white;
 }
 
 @media screen and (max-width: 730px) {

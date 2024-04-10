@@ -86,6 +86,13 @@ body, main {
     flex-basis: calc(100%/3 - 10vw);
 }
 
+#button-endereco {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 210px;
+}
+
 @media screen and (max-width: 1150px) {
     #restaurantes-deck .card {
         flex-basis: calc(100%/2 - 10vw);

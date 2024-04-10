@@ -118,13 +118,13 @@
     transition: 500ms;
 }
 
-body.dark-mode {
-    #info_section {
-        background-color: rgba(0, 0, 0, 0.692);
-        border-radius: 30px;
-        padding: 20px;
-    }
+.dark-mode #info_section {
+    background-color: rgba(0, 0, 0, 0.692);
+    color: white;
+    border-radius: 30px;
+    padding: 20px;
 }
+
 
 #user_info.show,
 #user_info.collapsing,

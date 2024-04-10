@@ -94,6 +94,12 @@ const loadAddress = () => {
 
 
             address_list.insertBefore(li, address_list.childNodes[0]);
+
+            li.addEventListener("click", (x) => {
+                const li_addres = x.target.innerText;
+                document.getElementById("button-endereco").innerText = li_addres;
+                console.log(li_addres);
+            })
         });
     }).catch(err => console.log(err.message));
 }

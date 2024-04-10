@@ -43,16 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const navbar_res = window.matchMedia("screen and (min-width: 992px)");
-const nav_collection = document.getElementById("header-options");
-
-navbar_res.addEventListener("change", () => {
-    if(navbar_res.matches) {
-        nav_collection.classList.remove("show");
-    }
-});
-
-
 $("#logout-button")[0].addEventListener("click", () => {
     if (!logged) return;
 
@@ -77,8 +67,14 @@ $('#user_login_page button')[0].addEventListener("click", () => {
 const loadUserInfo = () => {
     let info = localStorage.getItem("user_login");
 
-    if (!info || info == "null")
+    if (!info || info == "null" || info.id == "") {
+        
+        $('.cadastro-holder')[0].classList.add("d-none");
+        $('.cadastro-holder-unlogged')[0].classList.add("d-flex");
+
         return;
+    }
+
 
     logged = true;
     
@@ -87,6 +83,8 @@ const loadUserInfo = () => {
     $("#info_full_name")[0].innerText += ` ${info.full_name}`;
     $("#info_email")[0].innerText += ` ${info.email}`;
     $("#info_phone")[0].innerText += ` ${info.phone}`;
+
+    $("#user_id")[0].value = info.id;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -13,7 +13,8 @@ module.exports = {
             store_name: parameters.rest_name,
             // rest_adress: parameters.rest_adress,
             open_time: parameters.rest_open,
-            close_time: parameters.rest_close
+            close_time: parameters.rest_close,
+            user_id: parameters.user_id
             // rest_email: parameters.rest_email //create input for this
         });
 

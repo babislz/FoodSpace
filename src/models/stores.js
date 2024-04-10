@@ -1,6 +1,7 @@
 const sql = require("sequelize")
 const database = require("../config/db")
 const address = require("./address")
+const user = require("./users")
 
 const stores = database.define("Stores", {
     store_id:{
@@ -34,5 +35,9 @@ const stores = database.define("Stores", {
 stores.belongsTo(address, {
     foreignKey: 'address_id'
 })
+
+stores.belongsTo(user, {
+    foreignKey: 'user_id'
+})  
 
 module.exports = stores
