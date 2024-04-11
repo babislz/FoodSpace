@@ -12,6 +12,7 @@ const multer = require("multer");
 const config = require('./src/config/multer');
 const cadastro_prod = require('./src/controllers/cadastro_prod');
 const address_manager = require('./src/controllers/address_manager');
+const cart_controller = require('./src/controllers/cart_controller');
 
 route.get('/', inicio.getInicio);
 route.post('/', inicio.postLogin);
@@ -36,6 +37,9 @@ route.post('/cadastro-restaurantes', multer({storage: config.restaurantImageMult
 
 route.get('/cadastro-produto', cadastro_prod.prodGet);
 route.post('/cadastro-produto', multer({storage: config.productImageMulter}).single('foto'), cadastro_prod.prodInsert);
+
+route.get('/cart/get', cart_controller.getCart)
+route.get('/cart/add', cart_controller.addItem)
 
 route.post('/registerAddress', address_manager.registerAddress);
 route.get('/getAddresses', address_manager.getAddresses);

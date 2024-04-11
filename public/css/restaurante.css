@@ -160,6 +160,14 @@ footer {
     border:  none;
 }
 
+#carrouselDestaques .card-body {
+    height: 100%;
+}
+#caroruselDestaques .prod-bot {
+
+}
+
+
 @media  only screen and (max-width: 1100px) {
     #buscaCardapio {
         width: 40vw;

@@ -26,7 +26,7 @@ module.exports = {
 
         console.log(store);
 
-        res.render("../views/cadastro_rest.ejs")
+        res.redirect("/restaurantes");
     },
 
 

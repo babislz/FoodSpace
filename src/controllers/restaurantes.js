@@ -1,10 +1,18 @@
+const highlight = require("../models/highlights");
+const products = require("../models/products");
 const stores = require("../models/stores")
+
 const { Sequelize, Op} = require("sequelize");
 
 module.exports = {
     async getRestaurantesPage(req, res) {
-        
-        res.render('../views/restaurantes.ejs')
+        let highlights = await highlight.findAll({
+            include : [{
+                model: products,
+            }]
+        });
+
+        res.render('../views/restaurantes.ejs', {highlights});
     },
 
     async getStores(req, res) {

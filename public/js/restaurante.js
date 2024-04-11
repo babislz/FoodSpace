@@ -52,3 +52,12 @@ filter_form.addEventListener("change", (e) => {
     }
     
 });
+
+
+Array.from(document.querySelectorAll("#restaurantes-deck .card a")).forEach(x => {
+    x.addEventListener("click", (a) => {
+        let element = a.target.getAttribute("product-id");
+        
+        
+    });
+});

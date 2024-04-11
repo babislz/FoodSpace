@@ -212,7 +212,7 @@
           </div>
           <div>
             <p>Descrição</p>
-            <textarea name="desc_highlight" id="desc_highlight" cols="20" rows="10"></textarea>
+            <textarea class="p-1" name="desc_highlight" id="desc_highlight" cols="20" rows="10"></textarea>
           </div>
           <div>
             <button type="submit" class=" btn btn-dark">Add</button>
@@ -303,10 +303,12 @@
                     <% if (!highlights[i*5 + j] || !highlights[i*5 + j]=='null' ) break; %>
                       <div class="card" style="width: 18rem;">
                         <img src="/img/<%-highlights[i*5 +j].Product.product_photo%>" class="destq card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title"><%-highlights[i*5 + j].Product.product_name%></h5>
-                          <p class="card-text"><%- highlights[i*5 + j].description%></p>
-                          <div class="prod-bot">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                          <div>  
+                            <h5 class="card-title"><%-highlights[i*5 + j].Product.product_name%></h5>
+                            <p class="card-text"><%- highlights[i*5 + j].description%></p>
+                          </div>
+                            <div class="prod-bot">
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                           </div>
                         </div>
@@ -342,7 +344,7 @@
           </button>
         </div>
 
-        <div class="cardapio">
+        <div class="cardapio mt-5">
           <div class="d-flex gap-2 align-items-center">
             <h4>Cardápio</h4>
             <button id="owner_add_product" class="add-btn btn"><i class="bi bi-plus-circle"></i></i></button>
@@ -362,7 +364,7 @@
                     </p>
                     <p class="mt-2" style="color: rgb(0, 184, 0);">R$: <%-x.product_price%>
                     </p>
-                    <a href="#" class="btn btn-primary mt-3">Adicionar ao carrinho</a>
+                    <a href="#" class="btn btn-primary mt-3" product-id="<%- x.product_id%>">Adicionar ao carrinho</a>
                   </div>
                 </div>
                 <% }) %>
