@@ -5,6 +5,10 @@
     padding: 0;
     margin: 0;
 }
+#banner-img{
+    object-fit: cover;
+    height: 600px;
+}
 body, nav {
     background-color: var(--background-light);
     color: var(--text-primary);
@@ -190,4 +194,10 @@ footer {
 }
 #title{
     color: black;
+    font-family: "Mukta", sans-serif;
+    font-size: 70px;
+    backdrop-filter: blur(1.5px);
+}
+.add-btn{
+    color: var(--text-primary);
 }

@@ -34,6 +34,7 @@
 #button-endereco {
     background-color: transparent;
     border: none;
+    margin-right: 60px;
     color: var(--text-primary)
 }
 
