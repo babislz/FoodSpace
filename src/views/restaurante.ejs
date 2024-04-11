@@ -179,7 +179,7 @@
             <p>Preço:</p>
             <input type="text" id="preco_produto" name="preco_produto">
           </div>
-          
+
 
           <button type="submit" class="btn btn-dark mt-4">Add</button>
         </form>
@@ -199,9 +199,9 @@
           <div>
             <p>Produto</p>
             <select name="id_produto" id="id_produto">
-              <% product.forEach(p => { %>
+              <% product.forEach(p=> { %>
                 <option value="<%- p.product_id %>"><%- p.product_name %></option>
-              <% }) %>
+                <% }) %>
             </select>
           </div>
           <div>
@@ -250,7 +250,9 @@
       </div>
     </div>
     <div class="restaurant-header position-relative d-flex justify-content-center align-items-center position-relative">
-      <img src="./img/<% if (store.banner_url !== "" && store.banner_url && store.banner_url != null) { %><%- store.banner_url %><% }  else { %>restaurante/r_img_default.svg <% } %>" alt="">
+      <img
+        src="./img/<% if (store.banner_url !== "" && store.banner_url && store.banner_url != null) { %><%- store.banner_url %><% }  else { %>restaurante/r_img_default.svg <% } %>"
+        alt="">
       <h1 id="title" class="position-absolute">
         <% if (store) { %>
           <%- store.store_name %>
@@ -285,172 +287,25 @@
         </div>
         <div id="carrouselDestaques" class="carousel slide">
           <div class="carousel-inner">
-            <% highlights.forEach(x => { %>
-            <% }) %>    
-            <div class="carousel-item active container-fluid">
-              <div class="card-deck d-flex justify-content-center gap-5">
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
+            <% for (let i=0; i < highlights.length ; i++) {%>
+              <div class="carousel-item <%= i === 0 ? 'active' : '' %>"> <!-- Ensure correct class name -->
+                <div class="card-deck d-flex justify-content-center gap-5">
+                  <% for (let j=0; j < 5; j++) {%>
+                    <% if (!highlights[i*5 + j] || !highlights[i*5 + j]=='null' ) break; %>
+                      <div class="card" style="width: 18rem;">
+                        <img src="/img/<%-highlights[i*5 +j].Product.product_photo%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%-highlights[i*5 + j].Product.product_name%></h5>
+                          <p class="card-text"><%- highlights[i*5 + j].description%></p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                      <% } %>
                 </div>
               </div>
+              <% } %>
 
 
-            </div>
-            <div class="carousel-item">
-              <div class="card-deck d-flex justify-content-center gap-5">
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card titlaae</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="card-deck d-flex justify-content-center gap-5">
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card titaaaaale</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                      card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carrouselDestaques"
             data-bs-slide="prev">
