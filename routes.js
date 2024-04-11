@@ -24,6 +24,10 @@ route.get('/restaurantes', restaurantes.getRestaurantesPage);
 route.get('/restaurantes/list', restaurantes.getStores)
 
 route.get ('/restaurante', restaurante.getRestaurante);
+route.post ('/restaurante/editBanner', multer({storage: config.bannerImageMulter}).single('foto_banner'), restaurante.editBanner);
+route.post ('/restaurante/addProduct', multer({storage: config.productImageMulter}).single('foto_produto'), restaurante.createProduct);
+route.post ('/restaurante/addHighlight', restaurante.createHighlight);
+
 route.get('/compra', compra.getCompra);
 route.get('/historico', historico.getHistorico);
 

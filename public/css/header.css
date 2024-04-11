@@ -77,6 +77,7 @@
 }
 
 #user_img {
+    position: relative;
     width: 40px;
     height: 40px;
 }
@@ -89,10 +90,10 @@
 }
 
 #user_img::before {
+    position: absolute;
     content: attr(data-before);
-    margin-right: 10px;
-    margin-left: 10px;
     color: var(--text-primary);
+    right: 110%;
 }
 
 .user-info-holder {

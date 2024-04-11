@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/cadastro_rest.css">
     <script src="/js/cadastro_rest.js" defer></script>
     <script src="/js/darkmode.js" defer></script>
+    <script src="/js/login_manager.js" defer></script>
 
 
 
@@ -25,10 +26,10 @@
         <nav class="navbar-expand-lg  p-0 d-flex justify-content-center align-items-center">
             <a class="navbar-brand p-0" href="/restaurantes"><img id="logo-image" src="/img/logo-black.png" alt=""></a>
             
-            <div class="m-0 d-flex justify-content-around align-items-center container-fluid">
-                <div class="me-auto" id="cadastro-ajuda">
+            <div class="m-0 d-flex justify-content-between px-5 align-items-center container-fluid">
+                <div  id="cadastro-ajuda">
                     <div id="ajuda" class="op dropdown">
-                        <button id="button-ajuda" class="btn dropdown-toggle" type="button"
+                        <button id="button-ajuda" class="btn dropdown-toggle " type="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Ajuda
                         </button>
@@ -39,7 +40,7 @@
                     </div>
                 </div>
                 <div class="user-info-holder">
-                    <button id="user_img" class="btn navbar-nav mb-2  mb-lg-0">
+                    <button id="user_img" class="btn navbar-nav mb-2  mb-lg-0 d-flex">
                         <img class="options-nav" src="/img/user.png">
                     </button>
                     <div id="user_info" class="collapse">
@@ -73,14 +74,14 @@
         </div>
         <div class="cadastro-holder">
             <form id="cadastroForm" class="d-flex flex-column justify-content-between" action="/cadastro-restaurantes"
-                method="post">
+                method="post" enctype="multipart/form-data">
                     <div id="form-header" class="d-flex justify-content-between" style="width: 100%;">
                         <h3>Cadastre seu negócio!</h2>
                         <label id="file_label">
                            <p> Imagem do restaurante</p>
                             <img src="/img/upload.png" alt="">
                         </label>
-                        <input id="store_image" type="file">
+                        <input id="store_image" type="file" name="foto">
                     </div>
                     <div class="form-inputs d-flex flex-column mt-4">
                         <input type="text" class="d-none" name="user_id" id="user_id">

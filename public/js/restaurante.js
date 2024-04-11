@@ -30,5 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    $("#profileImg")[0].src = "/img/" + store_info.profile_url;
 });
 

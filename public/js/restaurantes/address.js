@@ -8,15 +8,15 @@ const getUserInfo = () => {
 };
 
 
-const modal = document.querySelector(".modal.address_modal");
+Array.from(document.querySelectorAll(".modal")).forEach(x => {
+    x.showModal = () => {
+        x.classList.add("modal-show");
+    }
 
-modal.showModal = () => {
-    modal.classList.add("modal-show");
-}
-
-modal.hideModal = () => {
-    modal.classList.remove("modal-show");
-}
+    x.hideModal = () => {
+        x.classList.remove("modal-show");
+    }
+})
 
 $("#create_address")[0].addEventListener("click", () => {
     if (!getUserInfo()) {

@@ -1,6 +1,7 @@
 const sql = require("sequelize")
 const database = require("../config/db")
-const stores = require("./address")
+const stores = require("./address");
+const products = require("./products");
 
 const highlights = database.define("Highlights", {
     highlight_id: {
@@ -15,7 +16,7 @@ const highlights = database.define("Highlights", {
     }
 });
 
-highlights.belongsTo(stores, {
+highlights.belongsTo(products, {
     foreignKey: 'product_id'
 });
 

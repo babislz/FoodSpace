@@ -18,7 +18,7 @@ const products = database.define("Products", {
         allowNull: false
     },
     product_photo:{
-        type: sql.STRING(50),
+        type: sql.STRING(500),
         allowNull: true
     },
     product_description:{

@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/bb8.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="./css/restaurante.css">
-    <link rel="stylesheet" href="/css/restaurantes/modal.css">
-    <% if (store) { %>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/bb8.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="./css/restaurante.css">
+  <link rel="stylesheet" href="/css/restaurantes/modal.css">
+  <% if (store) { %>
     <script>
       const store_info = JSON.parse('<%- JSON.stringify(store) %>');
       const owner_id = store_info.user_id;
@@ -22,12 +26,14 @@
       const close_time = store_info.close_time;
     </script>
     <% } %>
-    <script src="/js/restaurante.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="/js/restaurantes/address.js" defer></script>
-    <script src="/js/darkmode.js" defer></script>
-    <script src="/js/login_manager.js" defer></script>
+      <script src="/js/restaurante.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="/js/restaurantes/address.js" defer></script>
+      <script src="/js/darkmode.js" defer></script>
+      <script src="/js/login_manager.js" defer></script>
+      <script src="/js/store/owner_login.js" defer></script>
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg">
@@ -123,6 +129,92 @@
     </nav>
   </header>
   <main>
+    <div class="modal edit-modal  justify-content-center align-items-center">
+      <div class="info">
+        <button type="button" class="btn close-btn" onclick="$('.product-modal')[0].hideModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <h4>Editar Banner</h4>
+        <form class="pt-4" action="/restaurante/editBanner" method="post" enctype="multipart/form-data">
+          <input type="text" name="store_id" class="d-none">
+          <div>
+            <p>Foto:</p>
+            <div class="position-relative foto"
+              onclick="openForm('.edit-modal .foto input', '.edit-modal .foto .input-label')">
+              <p class="input-label">Foto do banner:</p>
+              <input type="file" class="d-none" name="foto_banner">
+              <i class="bi bi-upload"></i>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark">Edit</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal product-modal  justify-content-center align-items-center">
+      <div class="info position-relative">
+        <button type="button" class="btn close-btn" onclick="$('.product-modal')[0].hideModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <h4>Info do produto:</h4>
+        <form class="pt-4" action="/restaurante/addProduct" method="post" enctype="multipart/form-data">
+          <input type="text" name="store_id" class="d-none">
+          <div>
+            <p>Nome:</p>
+            <input type="text" id="nome_produto" name="nome_produto">
+          </div>
+          <div>
+            <p>Foto:</p>
+            <div class="position-relative foto"
+              onclick="openForm('.product-modal .foto input', '.product-modal .foto .input-label')">
+              <p class="input-label">Foto do produto:</p>
+              <input type="file" class="d-none" name="foto_produto">
+              <i class="bi bi-upload"></i>
+            </div>
+          </div>
+          <div>
+            <p>Descrição:</p>
+            <input type="text" id="desc_produto" name="desc_produto">
+          </div>
+          <div>
+            <p>Preço:</p>
+            <input type="text" id="preco_produto" name="preco_produto">
+          </div>
+          
+
+          <button type="submit" class="btn btn-dark mt-4">Add</button>
+        </form>
+
+      </div>
+
+    </div>
+    <div class="modal highlight-modal  justify-content-center align-items-center">
+      <div class="info position-relative">
+        <button type="button" class="btn close-btn" onclick="$('.highlight-modal')[0].hideModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <h4>Info do destaque:</h4>
+
+        <form action="/restaurante/addHighlight" method="post" class="d-flex flex-column">
+          <input type="text" name="store_id" class="d-none">
+          <div>
+            <p>Produto</p>
+            <select name="id_produto" id="id_produto">
+              <% products.forEach(p => { %>
+                <option value="<%- p.product_id %>"><%- p.product_name %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div>
+            <p>Descrição</p>
+            <textarea name="desc_highlight" id="desc_highlight" cols="20" rows="10"></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-dark">Add</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
     <div class="modal address_modal">
       <div class="content">
         <div class="address-form">
@@ -139,12 +231,12 @@
                 <input name="city" class="" type="text" required>
               </div>
 
-              <div  class="num-street d-flex">
+              <div class="num-street d-flex">
                 <div class="container-fluid d-flex gap-3 flex-column">
                   <p>Rua:</p>
                   <input name="street" class="" type="text" required>
                 </div>
-                <div  class="a-number-holder container-fluid d-flex gap-3 flex-column">
+                <div class="a-number-holder container-fluid d-flex gap-3 flex-column">
                   <p>Número:</p>
                   <input name="number" class="" type="text" required>
                 </div>
@@ -157,40 +249,47 @@
 
       </div>
     </div>
-    <div class="restaurant-header position-relative d-flex justify-content-center align-items-center">
-        <img src="./img/restaurante/r_img_default.svg" alt="">
-        <h1 id="title" class="position-absolute">
-          <% if (store) { %>
-            <%- store.store_name  %>
-          <% } else { %>
-            Restaurante nao encontrado
-         <% } %>
-        </h1>
+    <div class="restaurant-header position-relative d-flex justify-content-center align-items-center position-relative">
+      <img src="./img/<% if (store.banner_url !== "" && store.banner_url && store.banner_url != null) { %><%- store.banner_url %><% }  else { %>restaurante/r_img_default.svg <% } %>" alt="">
+      <h1 id="title" class="position-absolute">
+        <% if (store) { %>
+          <%- store.store_name %>
+            <% } else { %>
+              Restaurante nao encontrado
+              <% } %>
+      </h1>
+
+      <button id="owner_edit_banner" class="btn"><i class="bi bi-pen"></i></button>
     </div>
 
     <% if (store) { %>
-    <div class="plates-section px-4 pt-4">
+      <div class="plates-section px-4 pt-4">
         <div class="info d-flex justify-content-between align-items-center pb-5">
-            <div class="d-flex">
-                <div class="me-3"><img id="profileImg" src="./img/restaurante/profile_default.svg" alt=""></div>
-                <div class="d-flex flex-column">
-                    <h4><%- store.store_name %></h4>
-                    <p style="color: gray;" class="m-0">Funcionamento: <%- store.open_time %> às <%- store.close_time %></p>
-                    <p id="status"></p>
-                </div>
+          <div class="d-flex">
+            <div class="me-3"><img id="profileImg" src="./img/restaurante/profile_default.svg" alt=""></div>
+            <div class="d-flex flex-column">
+              <h4><%- store.store_name %></h4>
+              <p style="color: gray;" class="m-0">Funcionamento: <%- store.open_time %> às <%- store.close_time %></p>
+              <p id="status"></p>
             </div>
-            <div class="position-relative d-flex align-items-center">
-                <img class="input-icon" src="./img/lupa.png" alt="">
-                <input id="buscaCardapio" type="text" placeholder="Buscar no cardápio">
-            </div> 
+          </div>
+          <div class="position-relative d-flex align-items-center">
+            <img class="input-icon" src="./img/lupa.png" alt="">
+            <input id="buscaCardapio" type="text" placeholder="Buscar no cardápio">
+          </div>
         </div>
 
-        <h4 class="title">Destaques</h4>
-        <div id="carouselExample" class="carousel slide">
+        <div class="title d-flex gap-2 align-items-center">
+          <h4>Destaques</h4>
+          <button id="owner_add_highlight" class="btn"><i class="bi bi-plus-circle"></i></i></button>
+        </div>
+        <div id="carrouselDestaques" class="carousel slide">
           <div class="carousel-inner">
+            <% highlights.forEach(x => { %>
+            <% }) %>    
             <div class="carousel-item active container-fluid">
               <div class="card-deck d-flex justify-content-center gap-5">
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -200,7 +299,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -210,7 +309,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -220,7 +319,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -230,7 +329,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -241,12 +340,12 @@
                   </div>
                 </div>
               </div>
-    
-    
+
+
             </div>
             <div class="carousel-item">
               <div class="card-deck d-flex justify-content-center gap-5">
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -256,7 +355,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -266,7 +365,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -276,7 +375,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -286,7 +385,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -300,7 +399,7 @@
             </div>
             <div class="carousel-item">
               <div class="card-deck d-flex justify-content-center gap-5">
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -310,7 +409,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -320,7 +419,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -330,7 +429,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -340,7 +439,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-    
+
                 <div class="card" style="width: 18rem;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
@@ -353,18 +452,24 @@
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-theme="dark" data-bs-target="#carrouselDestaques"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon position-absolute" style="left: 50px;" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
               </svg>
             </span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-theme="light" data-bs-target="#carouselExample" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-theme="light" data-bs-target="#carrouselDestaques"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon position-absolute" style="right: 50px;" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-chevron-right"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
               </svg>
             </span>
             <span class="visually-hidden">Next</span>
@@ -372,48 +477,51 @@
         </div>
 
         <div class="cardapio">
+          <div class="d-flex gap-2 align-items-center">
             <h4>Cardápio</h4>
+            <button id="owner_add_product" class="btn"><i class="bi bi-plus-circle"></i></i></button>
+          </div>
 
-            <div class="cardapio-items">
-                <div class="item">
-                    <div>
-                        <h4>Titulo</h4>
-                        <p>Descrição do prato...</p>
-                    </div>
-                    <img src="./img/restaurante/comida.png" alt="">
-                </div>
-                <div class="item">
-                    <div>
-                        <h4>Titulo</h4>
-                        <p>Descrição do prato...</p>
-                    </div>
-                    <img src="./img/restaurante/comida.png" alt="">
-                </div>
-                <div class="item">
-                    <div>
-                        <h4>Titulo</h4>
-                        <p>Descrição do prato...</p>
-                    </div>
-                    <img src="./img/restaurante/comida.png" alt="">
-                </div>
-                <div class="item">
-                    <div>
-                        <h4>Titulo</h4>
-                        <p>Descrição do prato...</p>
-                    </div>
-                    <img src="./img/restaurante/comida.png" alt="">
-                </div>
-                <div class="item">
-                    <div>
-                        <h4>Titulo</h4>
-                        <p>Descrição do prato...</p>
-                    </div>
-                    <img src="./img/restaurante/comida.png" alt="">
-                </div>
+          <div class="cardapio-items">
+            <div class="item">
+              <div>
+                <h4>Titulo</h4>
+                <p>Descrição do prato...</p>
+              </div>
+              <img src="./img/restaurante/comida.png" alt="">
             </div>
+            <div class="item">
+              <div>
+                <h4>Titulo</h4>
+                <p>Descrição do prato...</p>
+              </div>
+              <img src="./img/restaurante/comida.png" alt="">
+            </div>
+            <div class="item">
+              <div>
+                <h4>Titulo</h4>
+                <p>Descrição do prato...</p>
+              </div>
+              <img src="./img/restaurante/comida.png" alt="">
+            </div>
+            <div class="item">
+              <div>
+                <h4>Titulo</h4>
+                <p>Descrição do prato...</p>
+              </div>
+              <img src="./img/restaurante/comida.png" alt="">
+            </div>
+            <div class="item">
+              <div>
+                <h4>Titulo</h4>
+                <p>Descrição do prato...</p>
+              </div>
+              <img src="./img/restaurante/comida.png" alt="">
+            </div>
+          </div>
         </div>
-    </div>
-    <% } %>
+      </div>
+      <% } %>
   </main>
   <footer>
     <div id="footer-info" class="d-flex justify-content-between px-5 py-4">
@@ -433,9 +541,11 @@
           <div class="d-flex align-items-center justify-content-center">
             <!-- <img src="/img/insta.svg" class="pe-2" alt=""> -->
             <svg class="pe-2" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.54 0C3.38284 0 0 3.38284 0 7.54V17.98C0 22.1372 3.38284 25.52 7.54 25.52H17.98C22.1372 25.52 25.52 22.1372 25.52 17.98V7.54C25.52 3.38284 22.1372 0 17.98 0H7.54ZM7.54 1.16H17.98C21.5102 1.16 24.36 4.00984 24.36 7.54V17.98C24.36 21.5102 21.5102 24.36 17.98 24.36H7.54C4.00984 24.36 1.16 21.5102 1.16 17.98V7.54C1.16 4.00984 4.00984 1.16 7.54 1.16ZM19.72 4.64C19.4123 4.64 19.1173 4.76221 18.8998 4.97976C18.6822 5.1973 18.56 5.49235 18.56 5.8C18.56 6.10765 18.6822 6.4027 18.8998 6.62024C19.1173 6.83779 19.4123 6.96 19.72 6.96C20.0277 6.96 20.3227 6.83779 20.5402 6.62024C20.7578 6.4027 20.88 6.10765 20.88 5.8C20.88 5.49235 20.7578 5.1973 20.5402 4.97976C20.3227 4.76221 20.0277 4.64 19.72 4.64ZM12.76 6.38C9.24329 6.38 6.38 9.24329 6.38 12.76C6.38 16.2767 9.24329 19.14 12.76 19.14C16.2767 19.14 19.14 16.2767 19.14 12.76C19.14 9.24329 16.2767 6.38 12.76 6.38ZM12.76 7.54C15.6498 7.54 17.98 9.8702 17.98 12.76C17.98 15.6498 15.6498 17.98 12.76 17.98C9.8702 17.98 7.54 15.6498 7.54 12.76C7.54 9.8702 9.8702 7.54 12.76 7.54Z" fill="currentColor"/>
-              </svg>
-              
+              <path
+                d="M7.54 0C3.38284 0 0 3.38284 0 7.54V17.98C0 22.1372 3.38284 25.52 7.54 25.52H17.98C22.1372 25.52 25.52 22.1372 25.52 17.98V7.54C25.52 3.38284 22.1372 0 17.98 0H7.54ZM7.54 1.16H17.98C21.5102 1.16 24.36 4.00984 24.36 7.54V17.98C24.36 21.5102 21.5102 24.36 17.98 24.36H7.54C4.00984 24.36 1.16 21.5102 1.16 17.98V7.54C1.16 4.00984 4.00984 1.16 7.54 1.16ZM19.72 4.64C19.4123 4.64 19.1173 4.76221 18.8998 4.97976C18.6822 5.1973 18.56 5.49235 18.56 5.8C18.56 6.10765 18.6822 6.4027 18.8998 6.62024C19.1173 6.83779 19.4123 6.96 19.72 6.96C20.0277 6.96 20.3227 6.83779 20.5402 6.62024C20.7578 6.4027 20.88 6.10765 20.88 5.8C20.88 5.49235 20.7578 5.1973 20.5402 4.97976C20.3227 4.76221 20.0277 4.64 19.72 4.64ZM12.76 6.38C9.24329 6.38 6.38 9.24329 6.38 12.76C6.38 16.2767 9.24329 19.14 12.76 19.14C16.2767 19.14 19.14 16.2767 19.14 12.76C19.14 9.24329 16.2767 6.38 12.76 6.38ZM12.76 7.54C15.6498 7.54 17.98 9.8702 17.98 12.76C17.98 15.6498 15.6498 17.98 12.76 17.98C9.8702 17.98 7.54 15.6498 7.54 12.76C7.54 9.8702 9.8702 7.54 12.76 7.54Z"
+                fill="currentColor" />
+            </svg>
+
             <p>Instagram</p>
           </div>
           <div class="d-flex align-items-center justify-content-center">
@@ -452,7 +562,7 @@
                 </clipPath>
               </defs>
             </svg>
-          
+
             <p>Twitter</p>
           </div>
         </div>
@@ -464,6 +574,7 @@
       </div>
     </div>
   </footer>
-    
+
 </body>
+
 </html>

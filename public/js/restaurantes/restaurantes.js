@@ -12,7 +12,7 @@ const loadContent = (store_list) => {
         
         let card_img = document.createElement("img");
         card_img.classList.add("card-img-top");
-        card_img.setAttribute("src", "/img/kfc.jpg");
+        card_img.setAttribute("src", "/img/" + store.profile_url);
 
         let card_body = document.createElement("div");
         card_body.classList.add("card-body");
