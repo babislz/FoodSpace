@@ -33,3 +33,22 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#profileImg")[0].src = "/img/" + store_info.profile_url;
 });
 
+const filter_form = document.getElementById("buscaCardapio");
+const cardapio = Array.from(document.querySelectorAll(".cardapio .card"));
+
+
+filter_form.addEventListener("change", (e) => {
+    const filter_value = filter_form.value;
+
+    if (filter_value == "") {
+        cardapio.forEach(x => x.classList.remove("d-none"))
+        document.querySelector("#carrouselDestaques").classList.remove("d-none")
+        document.querySelector("body > main > div.plates-section.px-4.pt-4 > div.title.d-flex.gap-2.align-items-center").classList.remove("d-none")
+    } else {
+        cardapio.forEach(x => x.classList.add("d-none"))
+        cardapio.filter(x => x.querySelector(".card-title").innerText.includes(filter_value)).forEach(x => x.classList.remove('d-none'))
+        document.querySelector("#carrouselDestaques").classList.add("d-none")
+        document.querySelector("body > main > div.plates-section.px-4.pt-4 > div.title.d-flex.gap-2.align-items-center").classList.add("d-none")
+    }
+    
+});
