@@ -191,6 +191,7 @@ footer {
 .card{
     background-color: var(--light-black);
     color: var(--text-primary);
+    height: 400px;
 }
 #title{
     color: black;
@@ -239,6 +240,3 @@ footer {
     padding-top: 20px;
 }
 
-.prod-bot{
-    padding-top: 10px;
-}

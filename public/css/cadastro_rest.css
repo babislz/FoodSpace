@@ -17,7 +17,7 @@ nav {
 
 main{
     /* height: 90.2vh; feito em js */
-    background-image: url("https://i.postimg.cc/g2MBNtnX/solar.gif");
+    background-image: url("/img/solar.gif");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -130,6 +130,7 @@ main{
 }
 #button-cadastro-loja{
     height: 50px;
+    padding-top: 2px;
 }
 
 #button-ajuda{
@@ -188,7 +189,6 @@ main{
     object-fit: cover;
     z-index: 10;
 }
-
 
 @media  screen and (max-width: 1500px) {
     main {
