@@ -54,10 +54,12 @@ body, main {
     padding-top: 50px;
 }
 
-
+/* 
 #restaurante-img-cards{
     height: 240px;
-}
+} */
+
+
 
 #carousel-promocoes{
     padding-top: 40px;
@@ -80,6 +82,13 @@ body, main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10vw;
+}
+
+#restaurantes-deck  img {
+    object-fit: cover;
+    height: 250px;
+    width: 300px;
+    margin: 0 auto;
 }
 
 #restaurantes-deck .card {

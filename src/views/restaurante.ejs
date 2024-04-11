@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="./css/bb8.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="./css/restaurante.css">
-  <link rel="stylesheet" href="/css/restaurantes/produtos.css">
   <link rel="stylesheet" href="/css/restaurantes/modal.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,7 +160,7 @@
           <i class="bi bi-x-lg"></i>
         </button>
         <h4>Info do produto:</h4>
-        <form class="pt-4" action="/restaurante/addProduct" method="post" enctype="multipart/form-data">
+        <form class="cardapio-add pt-4" action="/restaurante/addProduct" method="post" enctype="multipart/form-data">
           <input type="text" name="store_id" class="d-none">
           <div>
             <p>Nome:</p>
@@ -303,11 +302,13 @@
                   <% for (let j=0; j < 5; j++) {%>
                     <% if (!highlights[i*5 + j] || !highlights[i*5 + j]=='null' ) break; %>
                       <div class="card" style="width: 18rem;">
-                        <img src="/img/<%-highlights[i*5 +j].Product.product_photo%>" class="card-img-top" alt="...">
+                        <img src="/img/<%-highlights[i*5 +j].Product.product_photo%>" class="destq card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title"><%-highlights[i*5 + j].Product.product_name%></h5>
                           <p class="card-text"><%- highlights[i*5 + j].description%></p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <div class="prod-bot">
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                          </div>
                         </div>
                       </div>
                       <% } %>

@@ -201,3 +201,44 @@ footer {
 .add-btn{
     color: var(--text-primary);
 }
+
+#restaurantes-deck{
+    margin-top: 40px;
+}
+
+#restaurantes-deck > div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10vw;
+}
+
+#restaurantes-deck  img {
+    object-fit: cover;
+    height: 235px;
+    margin: 0 auto;
+}
+
+#restaurantes-deck .card {
+    flex-basis: calc(100%/4 - 8vw);
+}
+
+#id_produto{
+    padding: 10px;
+}
+
+.destq{
+    object-fit: cover;
+    height: 235px;
+}
+.cardapio-add input, .input-label{
+    color: black;
+}
+
+#carrouselDestaques{
+    padding-top: 20px;
+}
+
+.prod-bot{
+    padding-top: 10px;
+}
