@@ -237,8 +237,11 @@ footer {
 }
 
 .destq{
-    object-fit: cover;
     height: 235px;
+}
+
+.destq img {
+    object-fit: cover;
 }
 .cardapio-add input, .input-label{
     color: black;
@@ -247,4 +250,3 @@ footer {
 #carrouselDestaques{
     padding-top: 20px;
 }
-
