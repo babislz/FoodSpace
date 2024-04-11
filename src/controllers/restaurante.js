@@ -1,6 +1,6 @@
 const stores = require('../models/stores')
 const products = require('../models/products')
-const highlights = require('../models/highlights');
+const highlight = require('../models/highlights');
 const product = require('../models/products');
 const sql = require('../config/db')
 
@@ -29,10 +29,16 @@ module.exports = {
             not_found = true; 
         }
 
-        const highliht_list = await sql.query("SELECT * from Highlights H inner join Products P on H.product_id = P.product_id having p.store_id = " + store.store_id)
+        // let highlights = await sql.query("SELECT H.description, p.store_id, h.product_id, p.product_photo from Highlights H inner join Products P on H.product_id = P.product_id having p.store_id = " + store.store_id)
+        let highlights = await highlight.findAll({
+            include : [{
+                model: products,
+                where: {store_id: store.store_id}
+            }]
+        });
 
 
-        res.render("../views/restaurante.ejs", {store, not_found, product, highlights: highliht_list})
+        res.render("../views/restaurante.ejs", {store, not_found, highlights, product})
     },
 
     async getProdutos(req, res) {
@@ -93,7 +99,7 @@ module.exports = {
             res.send("Error!")
         }
 
-        await highlights.create({
+        await highlight.create({
             product_id: req.body.id_produto,
             description: req.body.desc_highlight
         });

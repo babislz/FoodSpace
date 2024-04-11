@@ -17,7 +17,7 @@ nav {
 
 main{
     /* height: 90.2vh; feito em js */
-    background-image: url("/img/solar.gif");
+    background-image: url("https://i.postimg.cc/g2MBNtnX/solar.gif");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
