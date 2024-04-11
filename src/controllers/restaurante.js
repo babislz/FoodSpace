@@ -107,3 +107,4 @@ module.exports = {
         res.redirect("/restaurante?id=" + values.store_id);
     }
 }
+

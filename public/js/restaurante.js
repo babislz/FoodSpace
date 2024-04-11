@@ -33,3 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#profileImg")[0].src = "/img/" + store_info.profile_url;
 });
 
+
+
+Array.from(document.querySelectorAll("#restaurantes-deck .card a")).forEach(x => {
+    x.addEventListener("click", (a) => {
+        let element = a.target.getAttribute("product-id");
+        
+        
+    });
+});

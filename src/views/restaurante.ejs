@@ -341,7 +341,7 @@
           </button>
         </div>
 
-        <div class="cardapio">
+        <div class="cardapio mt-5">
           <div class="d-flex gap-2 align-items-center">
             <h4>Cardápio</h4>
             <button id="owner_add_product" class="add-btn btn"><i class="bi bi-plus-circle"></i></i></button>
@@ -361,7 +361,7 @@
                     </p>
                     <p class="mt-2" style="color: rgb(0, 184, 0);">R$: <%-x.product_price%>
                     </p>
-                    <a href="#" class="btn btn-primary mt-3">Adicionar ao carrinho</a>
+                    <a href="#" class="btn btn-primary mt-3" product-id="<%- x.product_id%>">Adicionar ao carrinho</a>
                   </div>
                 </div>
                 <% }) %>
